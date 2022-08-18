@@ -8,9 +8,8 @@ public class Autor
     public string Nombre {get ;set;}
     public List<Anime> animes;
 
-    public Autor(int id,string nombre)
+    public Autor(string nombre)
     {
-        Id = id;
         Nombre =nombre;
         animes = new List<Anime>();
     }

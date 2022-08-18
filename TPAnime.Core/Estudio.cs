@@ -6,9 +6,8 @@ namespace TPAnime.Core
         private string Nombre {get;set;}
         private string Domicilio {get;set;}
         
-    public Estudio(int id, string nombre, string domicilio)
+    public Estudio(string nombre, string domicilio)
     {
-        Id = id;
         Nombre = nombre;
         Domicilio = domicilio;
     }
