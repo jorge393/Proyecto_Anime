@@ -13,12 +13,12 @@ namespace TPAnime.AdoMySQL
         {
             Tabla = "Autor";
         }
-
+        
         public override Autor ObjetoDesdeFila(DataRow fila)
         => new Autor()
         {
             Id = Convert.ToInt32(fila["idAutor"]),
-            Nombre = fila["Nombre"].ToString() 
+            Nombre = fila["Nombre"].ToString()
         
         };
 
@@ -39,6 +39,18 @@ namespace TPAnime.AdoMySQL
         }
         public void PostAltaAutor(Autor autor)
         => autor.Id = Convert.ToInt32(GetParametro("unidAutor").Value);
+
+        public Autor AutorPorid(int Id)
+        {
+            SetComandoSP("llamarAutor");
+
+            BP.CrearParametro("unIdAutor")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+              .SetValor(Id)
+              .AgregarParametro();
+
+            return ElementoDesdeSP();
+        }
+        public List<Autor> ObtenerAutor() => ColeccionDesdeTabla();
     }
-        public List<Autor> obtenerAutores() => ColeccionDesdeTabla();
 }

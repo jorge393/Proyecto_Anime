@@ -3,15 +3,16 @@ namespace TPAnime.Core
     public class Anime
     {
         
-    private int Id {get;set;} 
-    private string Nombre {get;set;} 
-    private string Genero {get;set;}
-    private int Episodios {get;set;} 
-    private DateTime Lanzamiento {get;set;} 
-    private string Estado {get;set;} 
-    private Estudio Estudio;
-    private Autor Autor;
+    public int Id {get;set;} 
+    public string Nombre {get;set;} 
+    public string Genero {get;set;}
+    public int Episodios {get;set;} 
+    public DateTime Lanzamiento {get;set;} 
+    public string Estado {get;set;} 
+    public Estudio Estudio;
+    public Autor Autor;
 
+    public Anime(){}
     public Anime(string nombre, string genero,int episodios,DateTime lanzamiento,string estado )
     {
         Nombre = nombre;
