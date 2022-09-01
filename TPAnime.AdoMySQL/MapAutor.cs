@@ -51,6 +51,6 @@ namespace TPAnime.AdoMySQL
 
             return ElementoDesdeSP();
         }
-        public List<Autor> ObtenerAutor() => ColeccionDesdeTabla();
+        public List<Autor> ObtenerAutores() => ColeccionDesdeTabla();
     }
 }
