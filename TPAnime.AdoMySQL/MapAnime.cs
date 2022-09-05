@@ -13,7 +13,7 @@ namespace TPAnime.AdoMySQL
         
             public MapAutor mapAutor { get; set; }
             public MapAnime(MapAutor Mapautor) : this(Mapautor.AdoAGBD)
-           => Mapautor = mapAutor;
+            => Mapautor = mapAutor;
 
             public MapEstudio MapEstudio {get;set;}
             public MapAnime(MapEstudio mapEstudio) : this(mapEstudio.AdoAGBD)

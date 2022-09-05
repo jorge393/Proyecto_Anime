@@ -23,16 +23,15 @@ namespace TPAnime.AdoMySQL
         }
         public void altaAutor(Autor autor) => mapAutor.altaAutor(autor);
         public List<Autor> obtenerAutores() => mapAutor.ObtenerAutores();
+
         public void altaEstudio(Estudio estudio) => mapEstudio.AltaEstudio(estudio);
         public List<Estudio> obtenerEstudio() => mapEstudio.ObtenerEstudios();
         
-        public void altaAnime(Anime anime)
-        {
-            throw new NotImplementedException();
-        }
 
 
 
+        public void altaAnime(Anime anime) => mapAnime.ObtenerAnime();
+        
         public List<Anime> obtenerAnimes(Autor autor, Estudio estudio)
             => mapAnime.ObtenerAnime(autor,estudio);
 
