@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using TPAnime.Core;
-using TPAnime.AdoMySQL;
 
 namespace TPAnime.MVC.Controllers;
-public class AutoController : Controller
+public class AutorController : Controller
 {
+    private readonly IAdo Ado;
+    public AutorController(IAdo ado) => Ado = ado;
+
     [HttpGet]
     public IActionResult Index()
-        => View();
+        => View("Lista", Ado.obtenerAutores());
 }
 
