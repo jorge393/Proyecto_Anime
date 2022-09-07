@@ -17,9 +17,7 @@ namespace TPAnime.AdoMySQL
             Ado = ado;
             mapAutor = new MapAutor(Ado);
             mapEstudio = new MapEstudio(Ado);
-            mapAnime = new MapAnime(mapAutor);
-            mapAnime = new MapAnime(mapEstudio);
-
+            mapAnime = new MapAnime(mapAutor, mapEstudio);
         }
         public void altaAutor(Autor autor) => mapAutor.altaAutor(autor);
         public List<Autor> obtenerAutores() => mapAutor.ObtenerAutores();
@@ -29,11 +27,8 @@ namespace TPAnime.AdoMySQL
         
 
 
-
-        public void altaAnime(Anime anime) => mapAnime.ObtenerAnime();
-        
-        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio)
-            => mapAnime.ObtenerAnime(autor,estudio);
+        public void altaAnime(Anime anime) => mapAnime.AltaAnime(anime);
+        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio) => mapAnime.ObtenerAnime(autor,estudio);
 
         public List<Anime> obtenerAnimes()
         {

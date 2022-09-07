@@ -9,15 +9,15 @@ namespace TPAnime.AdoMySQL
 {
     public class MapAnime : Mapeador<Anime>
     {
-        public MapAnime(AdoAGBD ado) : base(ado) => Tabla = "Anime"; 
-        
-            public MapAutor mapAutor { get; set; }
-            public MapAnime(MapAutor Mapautor) : this(Mapautor.AdoAGBD)
-            => Mapautor = mapAutor;
+        public MapAnime(AdoAGBD ado) : base(ado) => Tabla = "Anime";
 
-            public MapEstudio MapEstudio {get;set;}
-            public MapAnime(MapEstudio mapEstudio) : this(mapEstudio.AdoAGBD)
-            => MapEstudio = mapEstudio;
+        public MapAutor mapAutor { get; set; }
+        public MapEstudio mapEstudio { get; set; }
+        public MapAnime(MapAutor MapAutor, MapEstudio MapEstudio) : this(MapAutor.AdoAGBD)
+        {
+            MapAutor = mapAutor;
+            MapEstudio = mapEstudio;
+        }
 
 
         public override Anime ObjetoDesdeFila(DataRow fila)
@@ -31,8 +31,8 @@ namespace TPAnime.AdoMySQL
             Lanzamiento = Convert.ToDateTime(fila["Lanzamiento"]),
             Estado = fila["estado"].ToString(),
             Autor = mapAutor.AutorPorid(Convert.ToInt32(fila["idautor"])),
-            Estudio = MapEstudio.EstudioPorid(Convert.ToInt32(fila["idestudio"]))
-        
+            Estudio = mapEstudio.EstudioPorid(Convert.ToInt32(fila["idestudio"]))
+
         };
 
         public List<Anime> ObtenerAnime() => ColeccionDesdeTabla();
@@ -99,7 +99,7 @@ namespace TPAnime.AdoMySQL
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
             .SetValor(anime.Estudio.Id)
             .AgregarParametro();
-            
+
         }
         public void PostAltaAnime(Anime anime)
             => anime.Id = Convert.ToInt32(GetParametro("unidAnime").Value);

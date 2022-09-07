@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TPAnime.Core\TPAnime.Core.csproj" />
+    <ProjectReference Include="..\TPAnime.AdoMySQL\TPAnime.AdoMySQL.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
