@@ -6,26 +6,37 @@ namespace TPAnime.MVC.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    public ViewResult Index()
     {
-        _logger = logger;
+        var hora = DateTime.Now.Hour;
+        string momento = "Buenas tardes";
+        if (hora<12) momento = "Buenos días";
+        return View("PrimeraVista", momento);
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+    
+    // private readonly ILogger<HomeController> _logger;
+
+    // public HomeController(ILogger<HomeController> logger)
+    // {
+    //     _logger = logger;
+    // }
+
+    // public IActionResult Index()
+    // {
+    //     return View();
+    // }
+
+    // public IActionResult Privacy()
+    // {
+    //     return View();
+    // }
+
+    // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    // public IActionResult Error()
+    // {
+    //     return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    // }
 }
