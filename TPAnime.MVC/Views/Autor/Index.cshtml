@@ -17,9 +17,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (TPAnime.Core.Autor animes in Model)
+            @foreach (TPAnime.Core.Autor autor in Model)
             {
-                
+                <tr>
+                    <td>
+                        <a asp-controller="Autor" asp-action="Index" asp-route-id="autor.id">@autor.Nombre</a>
+                    </td>
+                    
+                </tr>
             }
         </tbody>
     </table>

@@ -61,4 +61,8 @@ public class EstudioController : Controller
 //         Repositorio.ActualizarCategoria(categoria);
 //         return View("Index", Repositorio.Categorias);
 //     }
+<<<<<<< HEAD
  }
+=======
+}
+>>>>>>> b50aa502b534f23be93678077e764f534df745b3

@@ -6,13 +6,11 @@ namespace TPAnime.MVC.Controllers;
 
 public class HomeController : Controller
 {
-    public ViewResult Index()
+    public IActionResult Index()
     {
-        var hora = DateTime.Now.Hour;
-        string momento = "Buenas tardes";
-        if (hora<12) momento = "Buenos días";
-        return View("PrimeraVista", momento);
+        return View();
     }
+    
 
 
 
