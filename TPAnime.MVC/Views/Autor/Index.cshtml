@@ -10,23 +10,7 @@
     <a>Alta Autor</a>
     <h5>Categorias</h5>
     <table>
-        <thead>
-            <tr>
-                <td>Nombre</td>
-                <td>Animes Creados</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (TPAnime.Core.Autor autor in Model)
-            {
-                <tr>
-                    <td>
-                        <a asp-controller="Autor" asp-action="Index" asp-route-id="autor.id">@autor.Nombre</a>
-                    </td>
-                    
-                </tr>
-            }
-        </tbody>
+        
     </table>
 </body>
 </html>

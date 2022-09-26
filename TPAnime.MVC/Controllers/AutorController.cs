@@ -9,15 +9,16 @@ public class AutorController : Controller
 
     [HttpGet]
     public IActionResult Index()
+     => View("Lista", Ado.obtenerAutores());
+    [HttpGet]
+    public IActionResult AgregarAutor()
+        => View();
+    
+    [HttpPost]
+    public IActionResult AgregarAutor(Autor autor)
     {
-        // System.Console.WriteLine();
-        return View("Lista");
+        Ado.altaAutor(autor);
+        return View();
     }
-
-    // [HttpGet]
-    // public IActionResult Detalle(int id)
-    // {
-    //     var Autor = Ado.altaAutor
-    // }
 }
 

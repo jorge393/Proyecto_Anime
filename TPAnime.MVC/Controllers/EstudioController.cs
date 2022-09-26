@@ -11,58 +11,14 @@ public class EstudioController : Controller
     public IActionResult Index()
         => View("Lista", Ado.obtenerEstudio());
 
-    // [HttpGet]
-    // public IActionResult Detalle(int id)
-    // {
-    //     var categoria = Ado.obtenerAutores(id);
-    //     if (categoria is null)
-    //     {
-    //         return NotFound();
-    //     }
-    //     return View(categoria);
-    // }
-
     [HttpGet]
-    public IActionResult FormAlta() => View();
+    public IActionResult AgregarEstudio() => View();
 
     [HttpPost]
-    public IActionResult FormAlta(Autor autor)
+    public IActionResult AgregarEstudio(Estudio estudio)
     {
-        Ado.altaAutor(autor);
-        return View("Index", Ado.obtenerAutores());
+        Ado.altaEstudio(estudio);
+        return View();
     }
-
-    // [HttpPost]
-    // public IActionResult Eliminar(int id)
-    // {
-    //     var categoria = Repositorio.GetCategoria(id);
-    //     if (categoria is null)
-    //     {
-    //         return NotFound();
-    //     }
-    //     Repositorio.EliminarCategoria(categoria);
-    //     return View("Index", Repositorio.Categorias);
-    // }
-
-    // [HttpGet]
-    // public IActionResult Modificar(int id)
-    // {
-    //     var categoria = Repositorio.GetCategoria(id);
-    //     if (categoria is null)
-    //     {
-    //         return NotFound();
-    //     }
-    //     return View(categoria);
-    // }
-
-    //     [HttpPost]
-    //     public IActionResult Modificar(Categoria categoria)
-    //     {
-    //         Repositorio.ActualizarCategoria(categoria);
-    //         return View("Index", Repositorio.Categorias);
-    //     }
-
 }
 
-// }
-// >>>>>>> b50aa502b534f23be93678077e764f534df745b3

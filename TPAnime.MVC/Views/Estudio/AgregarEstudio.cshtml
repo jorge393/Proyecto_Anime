@@ -1,0 +1,22 @@
+@model TPAnime.Core.Estudio
+@{
+    Layout=null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form asp-action="AgregarEstudio" method="post">
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="Nombre">Nombre:</label>
+            <input asp-for="Nombre" />
+            <label asp-for="Domicilio">Domicilio:</label>
+            <input asp-for="Domicilio" />
+        </div>
+        <button type="submit">Alta Estudio</button>
+    </form>
+</body>
+</html>

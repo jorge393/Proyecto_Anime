@@ -18,16 +18,19 @@
         </thead>
         <tbody>
             <p>en proceso</p>
-            @* @foreach (TPAnime.Core.Autor autor in Model)
+            @foreach (TPAnime.Core.Autor autor in Model)
             {
                 <tr>
                     <td>
-                        <a asp-controller="Autor" asp-action="Index" asp-route-id="autor.id">@autor.Nombre</a>
+                        <a asp-controller="Autor" asp-action="Index" asp-route-id="@autor.Id" style="text-decoration: none; color: black">@autor.Nombre</a>
                     </td>
                     
                 </tr>
-            } *@
+            }
+
+            @* <p>Agregar un autor:</p> *@
         </tbody>
     </table>
+    <a asp-controller="Autor" asp-action="AgregarAutor">Agregar un nuevo autor</a>
 </body>
 </html>
