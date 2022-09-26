@@ -13,7 +13,7 @@ drop PROCEDURE if EXISTS altaEstudio;
 
 CREATE PROCEDURE altaEstudio (out unIdEstudio int, unNombre VARCHAR(45), unDomicilio VARCHAR(45))
 BEGIN 
-    INSERT INTO Estudio (nombre, dommicilio)
+    INSERT INTO Estudio (nombre, domicilio)
             VALUE (unNombre, unDomicilio);
     SET unIdEstudio = last_insert_id();
 END $$
