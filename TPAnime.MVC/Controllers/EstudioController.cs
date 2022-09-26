@@ -9,7 +9,7 @@ public class EstudioController : Controller
 
     [HttpGet]
     public IActionResult Index()
-        => View("Lista", Ado.obtenerAutores());
+        => View("Lista", Ado.obtenerEstudio());
 
     // [HttpGet]
     // public IActionResult Detalle(int id)
@@ -55,14 +55,14 @@ public class EstudioController : Controller
     //     return View(categoria);
     // }
 
-//     [HttpPost]
-//     public IActionResult Modificar(Categoria categoria)
-//     {
-//         Repositorio.ActualizarCategoria(categoria);
-//         return View("Index", Repositorio.Categorias);
-//     }
-<<<<<<< HEAD
- }
-=======
+    //     [HttpPost]
+    //     public IActionResult Modificar(Categoria categoria)
+    //     {
+    //         Repositorio.ActualizarCategoria(categoria);
+    //         return View("Index", Repositorio.Categorias);
+    //     }
+
 }
->>>>>>> b50aa502b534f23be93678077e764f534df745b3
+
+// }
+// >>>>>>> b50aa502b534f23be93678077e764f534df745b3

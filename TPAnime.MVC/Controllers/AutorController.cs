@@ -9,7 +9,10 @@ public class AutorController : Controller
 
     [HttpGet]
     public IActionResult Index()
-        => View("Lista", Ado.obtenerAutores());
+    {
+        // System.Console.WriteLine();
+        return View("Lista");
+    }
 
     // [HttpGet]
     // public IActionResult Detalle(int id)
