@@ -1,3 +1,5 @@
+
+-- AUTOR
 DELIMITER $$
 DROP PROCEDURE if EXISTS altaAutor;
 
@@ -25,6 +27,12 @@ BEGIN
     SET Nombre = unNombre
     WHERE idAutor = unId;
 END $$
+
+
+
+
+
+-- ESTUDIO
 DELIMITER $$
 DROP PROCEDURE if EXISTS altaEstudio;
 
@@ -56,6 +64,7 @@ END $$
 
 
 
+-- ANIME
 DELIMITER $$
 DROP PROCEDURE if EXISTS altaAnime;
 

@@ -24,6 +24,8 @@ namespace TPAnime.AdoMySQL
 
         public void altaAutor(Autor autor)
         => EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
+
+
         public void ConfigurarAltaAutor(Autor autor)
         {
             SetComandoSP("AltaAutor");
@@ -37,6 +39,8 @@ namespace TPAnime.AdoMySQL
             .SetValor(autor.Nombre)
             .AgregarParametro();
         }
+
+
         public void PostAltaAutor(Autor autor)
         => autor.Id = Convert.ToInt32(GetParametro("unidAutor").Value);
 
