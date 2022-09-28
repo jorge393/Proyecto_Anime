@@ -1,14 +1,17 @@
 @using TPAnime.Core;
 @model IEnumerable<Autor>
-
+@{
+    Layout = null;
+}
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Lista</title>
 </head>
+
 <body>
     <a>Alta Autor</a>
-    <h5>Categorias</h5>
     <table>
         <thead>
             <tr>
@@ -17,14 +20,14 @@
             </tr>
         </thead>
         <tbody>
-            <p>en proceso</p>
             @foreach (TPAnime.Core.Autor autor in Model)
             {
                 <tr>
                     <td>
-                        <a asp-controller="Autor" asp-action="Index" asp-route-id="@autor.Id" style="text-decoration: none; color: black">@autor.Nombre</a>
+                        <a asp-controller="Autor" asp-action="Index" asp-route-id="@autor.Id"
+                        style="text-decoration: none; color: black">@autor.Nombre</a>
                     </td>
-                    
+
                 </tr>
             }
 
@@ -33,4 +36,5 @@
     </table>
     <a asp-controller="Autor" asp-action="AgregarAutor">Agregar un nuevo autor</a>
 </body>
+
 </html>

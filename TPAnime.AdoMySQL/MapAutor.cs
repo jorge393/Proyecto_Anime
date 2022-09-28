@@ -13,17 +13,20 @@ namespace TPAnime.AdoMySQL
         {
             Tabla = "Autor";
         }
-        
+
         public override Autor ObjetoDesdeFila(DataRow fila)
         => new Autor()
         {
             Id = Convert.ToInt32(fila["idAutor"]),
             Nombre = fila["Nombre"].ToString()
-        
+
         };
 
         public void altaAutor(Autor autor)
         => EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
+
+        public void eliminarAutor(Autor autor)
+          => EjecutarComandoCon("eliminarAutor", )
 
 
         public void ConfigurarAltaAutor(Autor autor)

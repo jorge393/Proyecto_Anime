@@ -21,8 +21,10 @@ namespace TPAnime.AdoMySQL
             Domicilio = fila["Domicilio"].ToString()
         };
 
+
         public void AltaEstudio(Estudio estudio)
             => EjecutarComandoCon("altaEstudio", ConfigurarAltaEstudio, PostAltaEstudio, estudio);
+
 
         public void ConfigurarAltaEstudio(Estudio estudio)
         {
@@ -42,6 +44,8 @@ namespace TPAnime.AdoMySQL
               .SetValor(estudio.Domicilio)
               .AgregarParametro();
         }
+
+
 
         public void PostAltaEstudio(Estudio estudio)
         {

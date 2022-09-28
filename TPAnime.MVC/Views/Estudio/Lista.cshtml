@@ -3,13 +3,15 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <title>Document</title>
+    <title>ListaEstudio</title>
 </head>
+
 <body>
+    <a>Alta Estudio</a>
     <table>
         <thead>
             <tr>
@@ -18,15 +20,15 @@
             </tr>
         </thead>
         <tbody>
-                
+
             @foreach (Estudio estudio in Model)
             {
                 <tr>
                     <td>
-                        <a asp-controller="Estudio" asp-action="Index" asp-route="@estudio.Id">@estudio.Nombre</a>
+                        <a asp-controller="Estudio" asp-action="Index" asp-route-id="@estudio.Id">@estudio.Nombre</a>
                     </td>
                     <td>
-                        <a asp-controller="Estudio" asp-action="Index" asp-route="@estudio.Id">@estudio.Domicilio</a>
+                        <a asp-controller="Estudio" asp-action="Index" asp-route-id="@estudio.Id">@estudio.Domicilio</a>
                     </td>
                 </tr>
             }
@@ -34,4 +36,5 @@
     </table>
     <a asp-controller="Estudio" asp-action="AgregarEstudio">Agregar un nuevo estudio</a>
 </body>
+
 </html>

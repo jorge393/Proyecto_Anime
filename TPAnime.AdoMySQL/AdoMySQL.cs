@@ -7,11 +7,11 @@ namespace TPAnime.AdoMySQL
 {
     public class AdoMySQL : IAdo
     {
-        AdoAGBD Ado {get;set;}
-        public MapAutor mapAutor {get;set;}
-        public MapEstudio mapEstudio {get;set;}
-        public MapAnime mapAnime {get;set;}
-        
+        AdoAGBD Ado { get; set; }
+        public MapAutor mapAutor { get; set; }
+        public MapEstudio mapEstudio { get; set; }
+        public MapAnime mapAnime { get; set; }
+
         public AdoMySQL(AdoAGBD ado)
         {
             Ado = ado;
@@ -24,15 +24,33 @@ namespace TPAnime.AdoMySQL
 
         public void altaEstudio(Estudio estudio) => mapEstudio.AltaEstudio(estudio);
         public List<Estudio> obtenerEstudio() => mapEstudio.ObtenerEstudios();
-        
+
 
 
         public void altaAnime(Anime anime) => mapAnime.AltaAnime(anime);
-        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio) => mapAnime.ObtenerAnime(autor,estudio);
+        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio) => mapAnime.ObtenerAnime(autor, estudio);
 
         public List<Anime> obtenerAnimes()
         {
             throw new NotImplementedException();
         }
+
+
+
+        public void eliminarAutor(Autor autor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void eliminarEstudio(Autor autor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void eliminarAnime(Autor autor)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
