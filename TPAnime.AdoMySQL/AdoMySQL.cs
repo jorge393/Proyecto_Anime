@@ -19,35 +19,41 @@ namespace TPAnime.AdoMySQL
             mapEstudio = new MapEstudio(Ado);
             mapAnime = new MapAnime(mapAutor, mapEstudio);
         }
-        public void altaAutor(Autor autor) => mapAutor.altaAutor(autor);
-        public List<Autor> obtenerAutores() => mapAutor.ObtenerAutores();
-
-        public void altaEstudio(Estudio estudio) => mapEstudio.AltaEstudio(estudio);
-        public List<Estudio> obtenerEstudio() => mapEstudio.ObtenerEstudios();
-
-
-
-        public void altaAnime(Anime anime) => mapAnime.AltaAnime(anime);
-        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio) => mapAnime.ObtenerAnime(autor, estudio);
-
-        public List<Anime> obtenerAnimes()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
+        //AUTOR
+        public void altaAutor(Autor autor) {
+            mapAutor.altaAutor(autor);
+        } 
+        public List<Autor> obtenerAutores() {
+            return mapAutor.ObtenerAutores();
+        } 
         public void eliminarAutor(Autor autor)
         {
-            throw new NotImplementedException();
+            mapAutor.eliminarAutor(autor);
         }
 
-        public void eliminarEstudio(Autor autor)
+        //ESTUDIO
+        public void altaEstudio(Estudio estudio) 
+        {
+            mapEstudio.AltaEstudio(estudio);
+        }
+        public List<Estudio> obtenerEstudio() {
+            return mapEstudio.ObtenerEstudios();
+        }   
+        public void eliminarEstudio(Estudio estudio)
         {
             throw new NotImplementedException();
         }
 
-        public void eliminarAnime(Autor autor)
+
+        // ANIME
+        public void altaAnime(Anime anime) {
+            mapAnime.AltaAnime(anime);
+        } 
+        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio) 
+        {
+            return mapAnime.ObtenerAnime(autor, estudio);
+        } 
+        public void eliminarAnime(Anime anime)
         {
             throw new NotImplementedException();
         }

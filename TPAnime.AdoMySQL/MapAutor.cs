@@ -22,27 +22,24 @@ namespace TPAnime.AdoMySQL
 
         };
 
+        //DAR DE ALTA AUTORES
         public void altaAutor(Autor autor)
-        => EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
-
-        public void eliminarAutor(Autor autor)
-          => EjecutarComandoCon("eliminarAutor", )
-
-
+        {
+            EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
+        } 
         public void ConfigurarAltaAutor(Autor autor)
         {
-            SetComandoSP("AltaAutor");
+            SetComandoSP("altaAutor");
 
             BP.CrearParametroSalida("unidAutor")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
             .AgregarParametro();
 
-            BP.CrearParametro("unnombre")
+            BP.CrearParametro("unNombre")
             .SetTipoVarchar(45)
             .SetValor(autor.Nombre)
             .AgregarParametro();
         }
-
 
         public void PostAltaAutor(Autor autor)
         => autor.Id = Convert.ToInt32(GetParametro("unidAutor").Value);
@@ -58,6 +55,42 @@ namespace TPAnime.AdoMySQL
 
             return ElementoDesdeSP();
         }
+
+
+
+
+
+
+        //OBTENER AUTORES
         public List<Autor> ObtenerAutores() => ColeccionDesdeTabla();
+
+
+        //ELIMINAR AUTORES
+        public void eliminarAutor(Autor autor)
+        {
+
+            EjecutarComandoCon("eliminarAutor", buscarAutor, autor);
+        } 
+
+        public void buscarAutor(Autor autor){
+
+
+            // int num = 0;
+            List<Autor> autores = new List<Autor>();
+            autores.Remove(autor);
+            // foreach (Autor item in autores)
+            // {
+            //     if (item == autor)
+            //     {
+            //         num = item.Id;
+            //     }
+            // }
+            
+        }
+        // public void borrarAutor()
+        // {
+
+        // }
+            
     }
 }

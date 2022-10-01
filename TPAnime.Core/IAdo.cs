@@ -14,12 +14,12 @@ namespace TPAnime.Core
         List<Estudio> obtenerEstudio();
 
         void altaAnime(Anime anime);
-        List<Anime> obtenerAnimes();
+        List<Anime> obtenerAnimes(Autor autor, Estudio estudio);
 
 
         void eliminarAutor(Autor autor);
-        void eliminarEstudio(Autor autor);
-        void eliminarAnime(Autor autor);
+        void eliminarEstudio(Estudio estudio);
+        void eliminarAnime(Anime anime);
 
 
     }

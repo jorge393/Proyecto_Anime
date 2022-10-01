@@ -5,13 +5,11 @@
 }
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Lista</title>
 </head>
-
 <body>
-    <a>Alta Autor</a>
+    <a>Eliminar Autor</a>
     <table>
         <thead>
             <tr>
@@ -24,7 +22,7 @@
             {
                 <tr>
                     <td>
-                        <a asp-controller="Autor" asp-action="Index" asp-route-id="@autor.Id"
+                        <a asp-controller="Autor" asp-action="EliminarAutor" method="delete"asp-route-id="@autor.Id"
                         style="text-decoration: none; color: black">@autor.Nombre</a>
                     </td>
 
@@ -34,8 +32,5 @@
             @* <p>Agregar un autor:</p> *@
         </tbody>
     </table>
-    <a asp-controller="Autor" asp-action="AgregarAutor">Agregar un nuevo autor</a>
-    <a asp-controller="Autor" asp-action="EliminarAutor">Eliminar un autor</a>
 </body>
-
 </html>

@@ -20,5 +20,15 @@ public class AutorController : Controller
         Ado.altaAutor(autor);
         return View();
     }
+
+    [HttpGet]
+    public IActionResult EliminarAutor()
+        => View();
+    [HttpDelete]
+    public IActionResult EliminarAutor(Autor autor)
+    {
+        Ado.eliminarAutor(autor);
+        return View();
+    }
 }
 
