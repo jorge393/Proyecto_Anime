@@ -7,10 +7,13 @@ public class AutorController : Controller
     private readonly IAdo Ado;
     public AutorController(IAdo ado) => Ado = ado;
 
+    // VER AUTORES
     [HttpGet]
     public IActionResult Index()
      => View("Lista", Ado.obtenerAutores());
     [HttpGet]
+
+    // AGREGAR AUTOR
     public IActionResult AgregarAutor()
         => View();
     
@@ -18,17 +21,18 @@ public class AutorController : Controller
     public IActionResult AgregarAutor(Autor autor)
     {
         Ado.altaAutor(autor);
-        return View();
+        return View("Lista", Ado.obtenerAutores());
     }
 
-    [HttpGet]
-    public IActionResult EliminarAutor()
-        => View();
-    [HttpDelete]
+    // ELIMINAR AUTOR
+    // [HttpGet]
+    // public IActionResult EliminarAutor()
+    //     => View();
+    [HttpPost]
     public IActionResult EliminarAutor(Autor autor)
     {
         Ado.eliminarAutor(autor);
-        return View();
+        return View("Lista", Ado.obtenerAutores());
     }
 }
 

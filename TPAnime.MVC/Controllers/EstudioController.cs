@@ -6,11 +6,13 @@ public class EstudioController : Controller
 {
     private readonly IAdo Ado;
     public EstudioController(IAdo ado) => Ado = ado;
-
+    
+    // VER ESTUDIOS
     [HttpGet]
     public IActionResult Index()
         => View("Lista", Ado.obtenerEstudio());
 
+    // AGREGAR ESTUDIO
     [HttpGet]
     public IActionResult AgregarEstudio() => View();
 
@@ -18,7 +20,8 @@ public class EstudioController : Controller
     public IActionResult AgregarEstudio(Estudio estudio)
     {
         Ado.altaEstudio(estudio);
-        return View();
+        return View("Lista", Ado.obtenerEstudio());
     }
+    // 
 }
 

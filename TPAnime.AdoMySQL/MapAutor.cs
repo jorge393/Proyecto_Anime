@@ -31,14 +31,9 @@ namespace TPAnime.AdoMySQL
         {
             SetComandoSP("altaAutor");
 
-            BP.CrearParametroSalida("unidAutor")
-            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-            .AgregarParametro();
+            BP.CrearParametroSalida("unidAutor").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).AgregarParametro();
 
-            BP.CrearParametro("unNombre")
-            .SetTipoVarchar(45)
-            .SetValor(autor.Nombre)
-            .AgregarParametro();
+            BP.CrearParametro("unNombre").SetTipoVarchar(45).SetValor(autor.Nombre).AgregarParametro();
         }
 
         public void PostAltaAutor(Autor autor)
@@ -48,7 +43,7 @@ namespace TPAnime.AdoMySQL
         {
             SetComandoSP("llamarAutor");
 
-            BP.CrearParametro("unIdAutor")
+            BP.CrearParametro("unidAutor")
               .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
               .SetValor(Id)
               .AgregarParametro();
@@ -57,40 +52,27 @@ namespace TPAnime.AdoMySQL
         }
 
 
-
-
-
-
         //OBTENER AUTORES
         public List<Autor> ObtenerAutores() => ColeccionDesdeTabla();
+
 
 
         //ELIMINAR AUTORES
         public void eliminarAutor(Autor autor)
         {
 
-            EjecutarComandoCon("eliminarAutor", buscarAutor, autor);
+            EjecutarComandoCon("eliminarAutor", ConfigurarbajaAutor, autor);
         } 
 
-        public void buscarAutor(Autor autor){
 
+        public void ConfigurarbajaAutor(Autor autor)
+        {
+            SetComandoSP("eliminarAutor");
 
-            // int num = 0;
-            List<Autor> autores = new List<Autor>();
-            autores.Remove(autor);
-            // foreach (Autor item in autores)
-            // {
-            //     if (item == autor)
-            //     {
-            //         num = item.Id;
-            //     }
-            // }
-            
+            BP.CrearParametro("unidAutor")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .AgregarParametro();
         }
-        // public void borrarAutor()
-        // {
-
-        // }
             
     }
 }

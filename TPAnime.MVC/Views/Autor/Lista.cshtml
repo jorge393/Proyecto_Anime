@@ -27,15 +27,19 @@
                         <a asp-controller="Autor" asp-action="Index" asp-route-id="@autor.Id"
                         style="text-decoration: none; color: black">@autor.Nombre</a>
                     </td>
-
+                    <td>
+                        <form asp-controller="Autor" asp-action="EliminarAutor" method="post">
+                            <input type="hidden" asp-for="@autor.Id" />
+                            <button type="submit">Eliminar</button>
+                        </form>  
+                    </td>
                 </tr>
             }
 
-            @* <p>Agregar un autor:</p> *@
         </tbody>
     </table>
     <a asp-controller="Autor" asp-action="AgregarAutor">Agregar un nuevo autor</a>
-    <a asp-controller="Autor" asp-action="EliminarAutor">Eliminar un autor</a>
+    @* <a asp-controller="Autor" asp-action="EliminarAutor">Eliminar un autor</a> *@
 </body>
 
 </html>

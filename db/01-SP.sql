@@ -10,22 +10,21 @@ BEGIN
     SET unIdAutor = last_insert_id();
 END $$
 
-DROP PROCEDURE IF EXISTS eliminarAutor;
 DELIMITER $$
-CREATE PROCEDURE eliminarAutor(unId int)
+DROP PROCEDURE IF EXISTS eliminarAutor;
+CREATE PROCEDURE eliminarAutor(unIdAutor int)
 BEGIN
     DELETE FROM Autor
-    WHERE idAutor = unId;
+    WHERE idAutor = unIdAutor;
 END $$
 
-DROP PROCEDURE IF EXISTS ActualizarAutor;
-
 DELIMITER $$
-CREATE PROCEDURE ActualizarAutor(unId int, unNombre VARCHAR(45))
+DROP PROCEDURE IF EXISTS ActualizarAutor;
+CREATE PROCEDURE ActualizarAutor(unIdAutor int, unNombre VARCHAR(45))
 BEGIN
     UPDATE Autor
     SET Nombre = unNombre
-    WHERE idAutor = unId;
+    WHERE idAutor = unIdAutor;
 END $$
 
 
@@ -43,17 +42,17 @@ BEGIN
     SET unIdEstudio = last_insert_id();
 END $$
 
-DROP PROCEDURE IF EXISTS eliminarEstudio;
 DELIMITER $$
+DROP PROCEDURE IF EXISTS eliminarEstudio;
 CREATE PROCEDURE eliminarEstudio(unId int)
 BEGIN
     DELETE FROM Estudio
     WHERE idEstudio = unId;
 END $$
 
-DROP PROCEDURE IF EXISTS ActualizarEstudio;
 
 DELIMITER $$
+DROP PROCEDURE IF EXISTS ActualizarEstudio;
 CREATE PROCEDURE ActualizarEstudio(unId int, unNombre VARCHAR(45), unDomicilio VARCHAR(45))
 BEGIN
     UPDATE Estudio
@@ -75,17 +74,17 @@ BEGIN
     SET unIdAnime = last_insert_id();
 END $$
 
-DROP PROCEDURE IF EXISTS eliminarAnime;
 DELIMITER $$
+DROP PROCEDURE IF EXISTS eliminarAnime;
 CREATE PROCEDURE eliminarAnime(unId int)
 BEGIN
     DELETE FROM Anime
     WHERE idAnime = unId;
 END $$
 
-DROP PROCEDURE IF EXISTS ActualizarAnime;
 
 DELIMITER $$
+DROP PROCEDURE IF EXISTS ActualizarAnime;
 CREATE PROCEDURE ActualizarAnime(unId int, unNombre VARCHAR(45), unEpisodios INT, unLanzamiento DATE, unEstado VARCHAR(45))
 BEGIN
     UPDATE Anime
