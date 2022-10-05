@@ -1,28 +1,15 @@
 using et12.edu.ar.AGBD.Ado;
 using et12.edu.ar.AGBD.Mapeadores;
-using System;
 using System.Data;
-using System.Collections.Generic;
 using TPAnime.Core;
 
 namespace TPAnime.AdoMySQL
 {
     public class MapAutor : Mapeador<Autor>
     {
-        public MapAutor(AdoAGBD ado) : base(ado)
-        {
-            Tabla = "Autor";
-        }
+        public MapAutor(AdoAGBD ado) : base(ado) => Tabla = "Autor";
 
-        public override Autor ObjetoDesdeFila(DataRow fila)
-        => new Autor()
-        {
-            Id = Convert.ToInt32(fila["idAutor"]),
-            Nombre = fila["nombre"].ToString()
-
-        };
-
-        //DAR DE ALTA AUTORES
+        #region AltaAutores
         public void altaAutor(Autor autor)
         {
             EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
@@ -50,11 +37,18 @@ namespace TPAnime.AdoMySQL
 
             return ElementoDesdeSP();
         }
+        #endregion
 
-
-        //OBTENER AUTORES
+        #region ObtenerAutores
         public List<Autor> ObtenerAutores() => ColeccionDesdeTabla();
+        public override Autor ObjetoDesdeFila(DataRow fila)
+        => new Autor()
+        {
+            Id = Convert.ToInt32(fila["idAutor"]),
+            Nombre = fila["nombre"].ToString()
 
+        };
+        #endregion
 
 
         //ELIMINAR AUTORES
@@ -71,6 +65,7 @@ namespace TPAnime.AdoMySQL
 
             BP.CrearParametro("unIdAutor")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(autor.Id)
             .AgregarParametro();
         }
 

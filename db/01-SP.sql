@@ -1,7 +1,7 @@
 
 -- AUTOR
 DELIMITER $$
-DROP PROCEDURE if EXISTS altaAutor;
+DROP PROCEDURE if EXISTS altaAutor $$
 
 CREATE PROCEDURE altaAutor (out unIdAutor int, unNombre VARCHAR(45))
 BEGIN 
@@ -14,13 +14,13 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS llamarAutor;
 CREATE PROCEDURE llamarAutor(unIdAutor int)
 BEGIN
-    SELECT idAutor
+    SELECT *
     FROM Autor
     WHERE idAutor = unIdAutor;
 END $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS eliminarAutor;
+DROP PROCEDURE IF EXISTS eliminarAutor $$
 CREATE PROCEDURE eliminarAutor(unIdAutor int)
 BEGIN
     DELETE FROM Autor
@@ -28,7 +28,7 @@ BEGIN
 END $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS ActualizarAutor;
+DROP PROCEDURE IF EXISTS ActualizarAutor $$
 CREATE PROCEDURE ActualizarAutor(unIdAutor int, unNombre VARCHAR(45))
 BEGIN
     UPDATE Autor
@@ -42,7 +42,7 @@ END $$
 
 -- ESTUDIO
 DELIMITER $$
-DROP PROCEDURE if EXISTS altaEstudio;
+DROP PROCEDURE if EXISTS altaEstudio $$
 
 CREATE PROCEDURE altaEstudio (out unIdEstudio int, unNombre VARCHAR(45), unDomicilio VARCHAR(45))
 BEGIN 
@@ -52,7 +52,7 @@ BEGIN
 END $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS eliminarEstudio;
+DROP PROCEDURE IF EXISTS eliminarEstudio $$
 CREATE PROCEDURE eliminarEstudio(unId int)
 BEGIN
     DELETE FROM Estudio
@@ -61,7 +61,7 @@ END $$
 
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS ActualizarEstudio;
+DROP PROCEDURE IF EXISTS ActualizarEstudio $$
 CREATE PROCEDURE ActualizarEstudio(unId int, unNombre VARCHAR(45), unDomicilio VARCHAR(45))
 BEGIN
     UPDATE Estudio
@@ -74,7 +74,7 @@ END $$
 
 -- ANIME
 DELIMITER $$
-DROP PROCEDURE if EXISTS altaAnime;
+DROP PROCEDURE if EXISTS altaAnime $$
 
 CREATE PROCEDURE altaAnime (out unIdAnime int, unNombre VARCHAR(45), unEpisodios INT, unLanzamiento DATE, unEstado varchar(45) )
 BEGIN 
@@ -84,7 +84,7 @@ BEGIN
 END $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS eliminarAnime;
+DROP PROCEDURE IF EXISTS eliminarAnime $$
 CREATE PROCEDURE eliminarAnime(unId int)
 BEGIN
     DELETE FROM Anime
@@ -93,7 +93,7 @@ END $$
 
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS ActualizarAnime;
+DROP PROCEDURE IF EXISTS ActualizarAnime $$
 CREATE PROCEDURE ActualizarAnime(unId int, unNombre VARCHAR(45), unEpisodios INT, unLanzamiento DATE, unEstado VARCHAR(45))
 BEGIN
     UPDATE Anime

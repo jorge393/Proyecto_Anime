@@ -36,7 +36,8 @@ public class AutorController : Controller
         {
             return NotFound();
         }
-        else Ado.eliminarAutor(autorEliminar);
+        else
+            Ado.eliminarAutor(autorEliminar);
         return View("Lista", Ado.obtenerAutores());
     }
 }
