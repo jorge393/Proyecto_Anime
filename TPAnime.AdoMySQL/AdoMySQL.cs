@@ -37,6 +37,10 @@ namespace TPAnime.AdoMySQL
         {
             return mapAutor.AutorPorid(id);
         }
+        public void actualizarAutor(Autor autor)
+        {
+            mapAutor.actualizarAutor(autor);
+        }
 
         //ESTUDIO
         public void altaEstudio(Estudio estudio)
@@ -67,5 +71,25 @@ namespace TPAnime.AdoMySQL
             throw new NotImplementedException();
         }
 
+
+        public void actualizarEstudio(Autor autor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void actualizarAnime(Autor autor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Autor EstudioPorid(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Autor AnimePorid(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

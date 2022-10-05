@@ -28,11 +28,11 @@ BEGIN
 END $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS ActualizarAutor $$
-CREATE PROCEDURE ActualizarAutor(unIdAutor int, unNombre VARCHAR(45))
+DROP PROCEDURE IF EXISTS actualizarAutor $$
+CREATE PROCEDURE actualizarAutor(unIdAutor int, unNombre VARCHAR(45))
 BEGIN
     UPDATE Autor
-    SET Nombre = unNombre
+    SET nombre = unNombre
     WHERE idAutor = unIdAutor;
 END $$
 

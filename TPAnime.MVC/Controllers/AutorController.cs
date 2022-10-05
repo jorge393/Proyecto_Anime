@@ -11,9 +11,10 @@ public class AutorController : Controller
     [HttpGet]
     public IActionResult Index()
      => View("Lista", Ado.obtenerAutores());
-    [HttpGet]
+    
 
     // AGREGAR AUTOR
+    [HttpGet]
     public IActionResult AgregarAutor()
         => View();
 
@@ -24,10 +25,7 @@ public class AutorController : Controller
         return View("Lista", Ado.obtenerAutores());
     }
 
-    // ELIMINAR AUTOR
-    // [HttpGet]
-    // public IActionResult EliminarAutor()
-    //     => View();
+    //ELIMINAR
     [HttpPost]
     public IActionResult EliminarAutor(Autor autor)
     {
@@ -38,6 +36,25 @@ public class AutorController : Controller
         }
         else
             Ado.eliminarAutor(autorEliminar);
+        return View("Lista", Ado.obtenerAutores());
+    }
+    //ACTUALIZAR
+    [HttpGet]
+    public IActionResult ActualizarAutor(Autor autor)
+    {
+        var autorcap = Ado.AutorPorid(autor.Id);
+        if (autorcap is null)
+        {
+            return NotFound();
+        }
+        else
+        return View(autorcap);
+    }
+
+    [HttpPost]
+    public IActionResult ActualizarAutora(Autor autor)
+    {
+        Ado.actualizarAutor(autor);
         return View("Lista", Ado.obtenerAutores());
     }
 }

@@ -50,8 +50,7 @@ namespace TPAnime.AdoMySQL
         };
         #endregion
 
-
-        //ELIMINAR AUTORES
+        #region eliminarAutor
         public void eliminarAutor(Autor autor)
         {
 
@@ -68,6 +67,30 @@ namespace TPAnime.AdoMySQL
             .SetValor(autor.Id)
             .AgregarParametro();
         }
+        #endregion
+        
+        #region actualizarAutor
+            
+            public void actualizarAutor(Autor autor)
+            {
+                EjecutarComandoCon("actualizarAutor", ConfigurarAltaAutorActualizado, autor);
+            }
 
+            public void ConfigurarAltaAutorActualizado(Autor autor)
+            {
+                SetComandoSP("actualizarAutor");
+
+                BP.CrearParametro("unIdAutor")
+                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                .SetValor(autor.Id)
+                .AgregarParametro();
+
+                BP.CrearParametro("unNombre")
+                .SetTipoVarchar(45)
+                .SetValor(autor.Nombre)
+                .AgregarParametro();
+            }
+
+        #endregion
     }
 }
