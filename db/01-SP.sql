@@ -11,6 +11,15 @@ BEGIN
 END $$
 
 DELIMITER $$
+DROP PROCEDURE IF EXISTS llamarAutor;
+CREATE PROCEDURE llamarAutor(unIdAutor int)
+BEGIN
+    SELECT idAutor
+    FROM Autor
+    WHERE idAutor = unIdAutor;
+END $$
+
+DELIMITER $$
 DROP PROCEDURE IF EXISTS eliminarAutor;
 CREATE PROCEDURE eliminarAutor(unIdAutor int)
 BEGIN

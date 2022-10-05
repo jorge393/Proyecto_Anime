@@ -18,7 +18,7 @@ namespace TPAnime.AdoMySQL
         => new Autor()
         {
             Id = Convert.ToInt32(fila["idAutor"]),
-            Nombre = fila["Nombre"].ToString()
+            Nombre = fila["nombre"].ToString()
 
         };
 
@@ -26,7 +26,7 @@ namespace TPAnime.AdoMySQL
         public void altaAutor(Autor autor)
         {
             EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
-        } 
+        }
         public void ConfigurarAltaAutor(Autor autor)
         {
             SetComandoSP("altaAutor");
@@ -62,17 +62,17 @@ namespace TPAnime.AdoMySQL
         {
 
             EjecutarComandoCon("eliminarAutor", ConfigurarbajaAutor, autor);
-        } 
+        }
 
 
         public void ConfigurarbajaAutor(Autor autor)
         {
             SetComandoSP("eliminarAutor");
 
-            BP.CrearParametro("unidAutor")
+            BP.CrearParametro("unIdAutor")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
             .AgregarParametro();
         }
-            
+
     }
 }

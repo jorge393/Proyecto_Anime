@@ -20,25 +20,33 @@ namespace TPAnime.AdoMySQL
             mapAnime = new MapAnime(mapAutor, mapEstudio);
         }
         //AUTOR
-        public void altaAutor(Autor autor) {
+        public void altaAutor(Autor autor)
+        {
             mapAutor.altaAutor(autor);
-        } 
-        public List<Autor> obtenerAutores() {
+        }
+        public List<Autor> obtenerAutores()
+        {
             return mapAutor.ObtenerAutores();
-        } 
+        }
         public void eliminarAutor(Autor autor)
         {
             mapAutor.eliminarAutor(autor);
         }
 
+        public Autor AutorPorid(int id)
+        {
+            return mapAutor.AutorPorid(id);
+        }
+
         //ESTUDIO
-        public void altaEstudio(Estudio estudio) 
+        public void altaEstudio(Estudio estudio)
         {
             mapEstudio.AltaEstudio(estudio);
         }
-        public List<Estudio> obtenerEstudio() {
+        public List<Estudio> obtenerEstudio()
+        {
             return mapEstudio.ObtenerEstudios();
-        }   
+        }
         public void eliminarEstudio(Estudio estudio)
         {
             throw new NotImplementedException();
@@ -46,13 +54,14 @@ namespace TPAnime.AdoMySQL
 
 
         // ANIME
-        public void altaAnime(Anime anime) {
+        public void altaAnime(Anime anime)
+        {
             mapAnime.AltaAnime(anime);
-        } 
-        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio) 
+        }
+        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio)
         {
             return mapAnime.ObtenerAnime(autor, estudio);
-        } 
+        }
         public void eliminarAnime(Anime anime)
         {
             throw new NotImplementedException();

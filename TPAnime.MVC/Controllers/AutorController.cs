@@ -16,7 +16,7 @@ public class AutorController : Controller
     // AGREGAR AUTOR
     public IActionResult AgregarAutor()
         => View();
-    
+
     [HttpPost]
     public IActionResult AgregarAutor(Autor autor)
     {
@@ -31,7 +31,12 @@ public class AutorController : Controller
     [HttpPost]
     public IActionResult EliminarAutor(Autor autor)
     {
-        Ado.eliminarAutor(autor);
+        Autor autorEliminar = Ado.AutorPorid(autor.Id);
+        if (autorEliminar is null)
+        {
+            return NotFound();
+        }
+        else Ado.eliminarAutor(autorEliminar);
         return View("Lista", Ado.obtenerAutores());
     }
 }
