@@ -22,8 +22,8 @@ namespace TPAnime.Core
         void eliminarAnime(Anime anime);
 
         void actualizarAutor(Autor autor);
-        void actualizarEstudio(Autor autor);
-        void actualizarAnime(Autor autor);
+        void actualizarEstudio(Estudio estudio);
+        void actualizarAnime(Anime anime);
 
 
         Autor AutorPorid(int id);

@@ -72,12 +72,12 @@ namespace TPAnime.AdoMySQL
         }
 
 
-        public void actualizarEstudio(Autor autor)
+        public void actualizarEstudio(Estudio estudio)
         {
             throw new NotImplementedException();
         }
 
-        public void actualizarAnime(Autor autor)
+        public void actualizarAnime(Anime anime)
         {
             throw new NotImplementedException();
         }
