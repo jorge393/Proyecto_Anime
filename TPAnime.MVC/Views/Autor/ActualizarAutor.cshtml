@@ -1,20 +1,24 @@
 @model TPAnime.Core.Autor;
 @{
-   Layout = null;
+    Layout = null;
 }
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Actualizar Autor</title>
 </head>
+
 <body>
     <form asp-action="ActualizarAutora" method="post">
         <div asp-validation-summary="All"></div>
         <div>
             <label asp-for="Nombre">Nombre:</label>
             <input asp-for="Nombre" />
+            <input type="hidden" asp-for="Id" />
         </div>
         <button type="submit">Actualizar Autor</button>
     </form>
 </body>
+
 </html>

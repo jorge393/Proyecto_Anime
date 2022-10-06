@@ -42,7 +42,7 @@ public class AutorController : Controller
     [HttpGet]
     public IActionResult ActualizarAutor(Autor autor)
     {
-        var autorcap = Ado.AutorPorid(autor.Id);
+        Autor autorcap = Ado.AutorPorid(autor.Id);
         if (autorcap is null)
         {
             return NotFound();
