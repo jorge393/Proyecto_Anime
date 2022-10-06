@@ -21,7 +21,8 @@ namespace TPAnime.AdoMySQL
             Domicilio = fila["Domicilio"].ToString()
         };
 
-
+        #region AltaEstudio
+            
         public void AltaEstudio(Estudio estudio)
             => EjecutarComandoCon("altaEstudio", ConfigurarAltaEstudio, PostAltaEstudio, estudio);
 
@@ -45,14 +46,16 @@ namespace TPAnime.AdoMySQL
               .AgregarParametro();
         }
 
-
-
         public void PostAltaEstudio(Estudio estudio)
         {
             var paramIdEstudio = GetParametro("unIdEstudio");
             estudio.Id = Convert.ToByte(paramIdEstudio.Value);
         }
 
+        #endregion
+
+        #region estudioPorid
+            
         public Estudio EstudioPorid(int Id)
         {
             SetComandoSP("llamarEstudio");
@@ -64,6 +67,53 @@ namespace TPAnime.AdoMySQL
 
             return ElementoDesdeSP();
         }
+        #endregion
+        
+        #region eliminarEstudio
+        public void eliminarEstudio(Estudio estudio)
+        {
+            EjecutarComandoCon("eliminarEstudio", ConfigurarbajaEstudio ,estudio);
+        }
+
+        public void ConfigurarbajaEstudio(Estudio estudio)
+        {
+            SetComandoSP("eliminarEstudio");
+
+            BP.CrearParametro("unIdEstudio")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(estudio.Id)
+            .AgregarParametro();
+        }
+        #endregion
+        
+        #region actualizarEstudio
+        public void actualizarEstudio(Estudio estudio)
+        {
+            EjecutarComandoCon("actualizarEstudio", ConfigurarAltaEstudioActualizado,estudio);
+        }
+
+
+        public void ConfigurarAltaEstudioActualizado (Estudio estudio)
+        {
+            SetComandoSP("actualizarEstudio");
+
+            BP.CrearParametro("unIdEstudio")
+                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                .SetValor(estudio.Id)
+                .AgregarParametro();
+
+                BP.CrearParametro("unNombre")
+                .SetTipoVarchar(45)
+                .SetValor(estudio.Nombre)
+                .AgregarParametro();
+
+                BP.CrearParametro("unDomicilio")
+                .SetTipoVarchar(45)
+                .SetValor(estudio.Domicilio)
+                .AgregarParametro();
+        }
+        #endregion
+
         public List<Estudio> ObtenerEstudios() => ColeccionDesdeTabla();
     }
 }

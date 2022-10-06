@@ -50,6 +50,13 @@ BEGIN
             VALUE (unNombre, unDomicilio);
     SET unIdEstudio = last_insert_id();
 END $$
+DROP PROCEDURE IF EXISTS llamarEstudio;
+CREATE PROCEDURE llamarEstudio(unIdEstudio int)
+BEGIN
+    SELECT *
+    FROM Estudio
+    WHERE idEstudio = unIdEstudio;
+END $$
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS eliminarEstudio $$

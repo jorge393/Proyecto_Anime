@@ -26,6 +26,7 @@ namespace TPAnime.AdoMySQL
         public void PostAltaAutor(Autor autor)
         => autor.Id = Convert.ToInt32(GetParametro("unidAutor").Value);
 
+        #endregion
         public Autor AutorPorid(int Id)
         {
             SetComandoSP("llamarAutor");
@@ -37,7 +38,6 @@ namespace TPAnime.AdoMySQL
 
             return ElementoDesdeSP();
         }
-        #endregion
 
         #region ObtenerAutores
         public List<Autor> ObtenerAutores() => ColeccionDesdeTabla();
