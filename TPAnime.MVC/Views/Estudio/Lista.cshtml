@@ -30,6 +30,13 @@
                     <td>
                         <a asp-controller="Estudio" asp-action="Index" asp-route-id="@estudio.Id">@estudio.Domicilio</a>
                     </td>
+                    <td>
+                        <form asp-controller="Estudio" asp-action="EliminarEstudio" method="post">
+                            <input type="hidden" asp-for="@estudio.Id" />
+                            <button type="submit">Eliminar</button>
+                        <a asp-controller="Estudio" asp-action="ActualizarEstudio" asp-route-Id="@estudio.Id">Actualizar</a>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>

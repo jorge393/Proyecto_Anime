@@ -60,21 +60,21 @@ END $$
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS eliminarEstudio $$
-CREATE PROCEDURE eliminarEstudio(unId int)
+CREATE PROCEDURE eliminarEstudio(unIdEstudio int)
 BEGIN
     DELETE FROM Estudio
-    WHERE idEstudio = unId;
+    WHERE idEstudio = unIdEstudio;
 END $$
 
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS ActualizarEstudio $$
-CREATE PROCEDURE ActualizarEstudio(unId int, unNombre VARCHAR(45), unDomicilio VARCHAR(45))
+CREATE PROCEDURE ActualizarEstudio(unIdEstudio int, unNombre VARCHAR(45), unDomicilio VARCHAR(45))
 BEGIN
     UPDATE Estudio
-    SET Nombre = unNombre
-    AND Domicilio = unDomicilio
-    WHERE idEstudio = unId;
+    SET Nombre = unNombre,
+        Domicilio = unDomicilio
+    WHERE idEstudio = unIdEstudio;
 END $$
 
 

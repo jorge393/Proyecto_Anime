@@ -72,7 +72,7 @@ namespace TPAnime.AdoMySQL
         #region eliminarEstudio
         public void eliminarEstudio(Estudio estudio)
         {
-            EjecutarComandoCon("eliminarEstudio", ConfigurarbajaEstudio ,estudio);
+            EjecutarComandoCon("eliminarEstudio", ConfigurarbajaEstudio,estudio);
         }
 
         public void ConfigurarbajaEstudio(Estudio estudio)

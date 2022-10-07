@@ -53,9 +53,18 @@ namespace TPAnime.AdoMySQL
         }
         public void eliminarEstudio(Estudio estudio)
         {
-            throw new NotImplementedException();
+            mapEstudio.eliminarEstudio(estudio);
         }
 
+        public Estudio EstudioPorid(int id)
+        {
+            return mapEstudio.EstudioPorid(id);
+        }
+
+        public void actualizarEstudio(Estudio estudio)
+        {
+            mapEstudio.actualizarEstudio(estudio);
+        }
 
         // ANIME
         public void altaAnime(Anime anime)
@@ -72,22 +81,15 @@ namespace TPAnime.AdoMySQL
         }
 
 
-        public void actualizarEstudio(Estudio estudio)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public void actualizarAnime(Anime anime)
         {
             throw new NotImplementedException();
         }
 
-        public Autor EstudioPorid(int id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Autor AnimePorid(int id)
+        public Anime AnimePorid(int id)
         {
             throw new NotImplementedException();
         }

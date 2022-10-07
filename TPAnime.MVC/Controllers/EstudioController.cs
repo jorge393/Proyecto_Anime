@@ -22,6 +22,39 @@ public class EstudioController : Controller
         Ado.altaEstudio(estudio);
         return View("Lista", Ado.obtenerEstudio());
     }
-    // 
+    // ELIMINAR ESTUDIO
+    [HttpPost]
+    public IActionResult EliminarEstudio(Estudio estudio)
+    {
+        Estudio estudioDelete = Ado.EstudioPorid(estudio.Id);
+        if (estudioDelete is null)
+        {
+            return NotFound();
+        }
+        else
+            Ado.eliminarEstudio(estudioDelete);
+        
+        return View("Lista", Ado.obtenerEstudio());
+    }
+
+    // ACTUALIZAR ESTUDIO
+    [HttpGet]
+    public IActionResult ActualizarEstudio(int id)
+    {
+        Estudio estudioUpdate = Ado.EstudioPorid(id);
+        if (estudioUpdate is null)
+        {
+            return NotFound();
+        }
+        else
+            return View(estudioUpdate);
+    }
+
+    [HttpPost]
+    public IActionResult ActualizarEstudio(Estudio estudio)
+    {
+        Ado.actualizarEstudio(estudio);
+        return View("Lista", Ado.obtenerEstudio());
+    }
 }
 

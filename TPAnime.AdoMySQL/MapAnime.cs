@@ -47,6 +47,7 @@ namespace TPAnime.AdoMySQL
             public void PostAltaAnime(Anime anime)
                 => anime.Id = Convert.ToInt32(GetParametro("unidAnime").Value);    
         #endregion
+
         
         #region ObtenerAnimes
             public List<Anime> ObtenerAnime() => ColeccionDesdeTabla();
