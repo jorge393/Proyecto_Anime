@@ -1,3 +1,7 @@
+.are {
+  margin: 0;
+  padding: 0;
+}
 html {
   font-size: 14px;
 }
@@ -7,12 +11,26 @@ html {
     font-size: 16px;
   }
 }
-
+html {
+  background-color: #ae2331;
+}
 html {
   position: relative;
   min-height: 100%;
 }
+header{
+  margin-bottom: 0;
+}
+.navegador{
+  background-color: #ae2331;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+nav{
+  margin: 0;
+}
 
-body {
-  margin-bottom: 60px;
+.icono img{
+  height: 5rem;
+  width: 5rem;
 }
