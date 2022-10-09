@@ -3,12 +3,22 @@
 <html>
 <head>
     <title>Mercado Simple</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
 </head>
 <body>
-    <h2>Elegi donde entrar</h2>
-    <a asp-controller="Autor" asp-action="Index">Autor</a>
-    <a asp-controller="Estudio" asp-action="Index">Estudio</a>
-    <a asp-controller="Anime" asp-action="Index">Anime</a>
+    <div class="contenedor">
+        <div>
+            <h2><b>Nuestras opciones</b></h2>
+        </div>
+        <div class="opciones">
+            <button type="button" class="btn"><a class="opcion" asp-controller="Autor" asp-action="Index"><b>Autores</b></a></button>
+            <button type="button" class="btn "><a class="opcion" asp-controller="Estudio" asp-action="Index"><b>Estudios</b></a></button>
+            <button type="button" class="btn"><a class="opcion" asp-controller="Anime" asp-action="Index"><b>Animes</b></a></button>
+        </div>
+    </div>
+    
 
     @* <a asp-controller="Producto" asp-action="Index">Productos</a> *@
 </body>

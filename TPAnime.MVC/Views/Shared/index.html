@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]Anime</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../wwwroot/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TPAnime.MVC.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid navegador">
+                
+                <a class="navbar-brand icono"><img src="../../wwwroot/img/icono.png" alt="..."></a>
+                
+                <button class="navbar-toggler" style="color:aqua" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" style="color:#07bbb4" aria-current="page" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" style="color:#07bbb4" href="#">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" style="color:#07bbb4" href="#">Cotactanos</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        <a href="#" style="text-decoration: none; color: grey;">Info..</a>
+                    </span>
+                </div> 
+                
+            </div>
+        </nav>
+    </header>
+    <!-- <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div> -->
+
+    <footer>
+        <div class="container">
+            <ul>
+                <li style="display:inline-block ">Facebook</li>
+                <li style="display:inline-block ">Instagram</li>
+                <li>Linkedin</li>
+                <li>Gmail</li>
+            </ul>
+        </div>
+    </footer>
+    <script src="../../wwwroot/lib/jquery/dist/jquery.min.js"></script>
+    <script src="../../wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../wwwroot/js/site.js"></script>
+</body>
+</html>
