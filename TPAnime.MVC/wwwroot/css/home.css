@@ -1,8 +1,6 @@
 body {
     font-size: 14px;
-    /* background-color: #24242c; */
     background-color: rgba(2,2,10,255) !important;
-
     position: relative;
     min-height: 100%;
     color: #0cc7b8;

@@ -32,7 +32,7 @@
         </nav> *@
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: red;">
             <div class="container-fluid navegador">
-                <a class="navbar-brand icono" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/icono.png" alt="..."></a>
+                <a class="navbar-brand icono" asp-controller="Home" asp-action="Index"><img src="~/img/icono.png" alt="..."></a>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,13 +41,13 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                        <a class="nav-link active" style="color:#07bbb4" aria-current="page" href="#"><b>Inicio</b></a>
+                        <a class="nav-link active" style="color:#07bbb4" aria-current="page" asp-controller="Home" asp-action="Index"><b>Inicio</b></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" style="color:#07bbb4" href="#"><b>Nosotros</b></a>
+                        <a class="nav-link" style="color:#07bbb4" asp-controller="Home" asp-action="Index"><b>Nosotros</b></a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" style="color:#07bbb4" href="#"><b>Cotactanos</b></a>
+                        <a class="nav-link" style="color:#07bbb4" asp-controller="Home" asp-action="Index"><b>Cotactanos</b></a>
                         </li>
                     </ul>
                     <span class="navbar-text">
