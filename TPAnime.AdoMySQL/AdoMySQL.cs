@@ -28,10 +28,7 @@ namespace TPAnime.AdoMySQL
         {
             return mapAutor.ObtenerAutores();
         }
-        public void eliminarAutor(Autor autor)
-        {
-            mapAutor.eliminarAutor(autor);
-        }
+        public void eliminarAutor(Autor autor) => mapAutor.eliminarAutor(autor);
 
         public Autor AutorPorid(int id)
         {
@@ -81,7 +78,7 @@ namespace TPAnime.AdoMySQL
         }
 
 
-        
+
 
         public void actualizarAnime(Anime anime)
         {

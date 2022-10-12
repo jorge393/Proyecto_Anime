@@ -1,47 +1,59 @@
 body {
     font-size: 14px;
-    background-color: rgba(2,2,10,255) !important;
+    background-color: rgba(2, 2, 10, 255) !important;
     position: relative;
     min-height: 100%;
     color: #0cc7b8;
 }
-html{
-    background-color: rgba(2,2,10,255) !important;
+
+html {
+    background-color: rgba(2, 2, 10, 255) !important;
 
 }
-.titulos{
+
+.titulos {
     font-size: 20px;
-    background-color:#e65d13;
+    background-color: #e65d13;
 }
-.btn{
+
+.btn {
     background-color: rgb(250, 53, 39);
     font-size: 17px;
 }
-.update{
+
+.update {
     background-color: rgb(0, 140, 255);
-    
+
 }
-.actualizar{
+
+.actualizar {
     text-decoration: none;
     font-size: 17px;
     color: white;
 }
-.dato{
-    font-size: 17px;
-    padding-top: 5rem;
 
-}
-.nuevo{
+
+.nuevo {
     font-size: 18px;
     background-color: #f07330;
 }
-.nuevoautor{
+
+.nuevoautor {
     text-decoration: none;
     color: white;
 }
-.name{
+
+.name {
     padding-top: 5rem;
 }
-.nombret{
+
+.nombret {
     color: white;
+}
+
+.nombreLink {
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    padding-top: 5rem;
 }

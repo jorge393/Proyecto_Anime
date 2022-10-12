@@ -6,7 +6,7 @@ public class EstudioController : Controller
 {
     private readonly IAdo Ado;
     public EstudioController(IAdo ado) => Ado = ado;
-    
+
     // VER ESTUDIOS
     [HttpGet]
     public IActionResult Index()
@@ -33,8 +33,8 @@ public class EstudioController : Controller
         }
         else
             Ado.eliminarEstudio(estudioDelete);
-        
-        return View("Lista", Ado.obtenerEstudio());
+
+        return Redirect(nameof(Index));
     }
 
     // ACTUALIZAR ESTUDIO

@@ -1,20 +1,28 @@
 body {
     font-size: 14px;
-    background-color: rgba(2,2,10,255) !important;
+    background-color: rgba(2, 2, 10, 255) !important;
     position: relative;
     min-height: 100%;
     color: #0cc7b8;
 }
-html{
-    background-color: rgba(2,2,10,255) !important;
+
+html {
+    background-color: rgba(2, 2, 10, 255) !important;
 }
-.contenedor{
+
+.contenedor {
     width: 25rem;
 }
-.cuerpo{
+
+.cuerpo {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.nombreLink {
+    text-decoration: none;
+    font-size: 17px;
+    padding-top: 5rem;
+}

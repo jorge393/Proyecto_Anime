@@ -4,10 +4,12 @@
 <html>
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/listas.css" asp-append-version="true" />
     <title>Autores</title>
 </head>
+
 <body>
     <h2><b>Autores</b></h2>
     <table class="table">
@@ -19,11 +21,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (TPAnime.Core.Autor autor in Model)
+            @foreach (Autor autor in Model)
             {
                 <tr>
                     <td>
-                        <a class="dato" asp-controller="Autor" asp-action="Index" asp-route-id="@autor.Id"style="text-decoration: none; color: white"><b class="name">@autor.Nombre</b></a>
+                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@autor.Id"><b class="name">@autor.Nombre</b></a>
                     </td>
                     <td>
 
@@ -31,9 +33,10 @@
                     <td>
                         <form asp-controller="Autor" asp-action="EliminarAutor" method="post">
                             <input type="hidden" asp-for="@autor.Id" />
-                            <button type="submit"class="btn"><b>Eliminar</b></button>
-                            <button type="button" class="btn update"><a class="actualizar" asp-controller="Autor" asp-action="ActualizarAutor" asp-route-id="@autor.Id"><b>Actualizar</b></a></button>
-                        </form>  
+                            <button type="submit" class="btn"><b>Eliminar</b></button>
+                            <button type="button" class="btn update"><a class="actualizar" asp-controller="Autor"
+                                asp-action="ActualizarAutor" asp-route-id="@autor.Id"><b>Actualizar</b></a></button>
+                        </form>
                     </td>
                 </tr>
             }

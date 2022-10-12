@@ -10,8 +10,11 @@ public class AutorController : Controller
     // VER AUTORES
     [HttpGet]
     public IActionResult Index()
-     => View("Lista", Ado.obtenerAutores());
-    
+    {
+        // var autores = Ado.obtenerAutores();
+        return View("Lista", Ado.obtenerAutores());
+    }
+
 
     // AGREGAR AUTOR
     [HttpGet]
@@ -29,14 +32,17 @@ public class AutorController : Controller
     [HttpPost]
     public IActionResult EliminarAutor(Autor autor)
     {
-        Autor autorEliminar = Ado.AutorPorid(autor.Id);
-        if (autorEliminar is null)
+
+        autor = Ado.AutorPorid(autor.Id);
+
+        if (autor is null)
         {
             return NotFound();
         }
         else
-            Ado.eliminarAutor(autorEliminar);
-        return View("Lista", Ado.obtenerAutores());
+            Ado.eliminarAutor(autor);
+        return Redirect(nameof(Index)); //solucion a el numero negativo al eliminar
+        // return View("Lista", Ado.obtenerAutores());
     }
     //ACTUALIZAR
     [HttpGet]
@@ -48,7 +54,7 @@ public class AutorController : Controller
             return NotFound();
         }
         else
-        return View(autorcap);
+            return View(autorcap);
     }
 
     [HttpPost]
