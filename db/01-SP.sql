@@ -3,10 +3,10 @@
 DELIMITER $$
 DROP PROCEDURE if EXISTS altaAutor $$
 
-CREATE PROCEDURE altaAutor (out unIdAutor int, unNombre VARCHAR(45))
+CREATE PROCEDURE altaAutor (out unIdAutor int, unNombre VARCHAR(45), unApellido VARCHAR(45))
 BEGIN 
-    INSERT INTO Autor (nombre)
-            VALUE (unNombre);
+    INSERT INTO Autor (nombre, apellido)
+            VALUE (unNombre, unApellido);
     SET unIdAutor = last_insert_id();
 END $$
 
@@ -29,10 +29,11 @@ END $$
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS actualizarAutor $$
-CREATE PROCEDURE actualizarAutor(unIdAutor int, unNombre VARCHAR(45))
+CREATE PROCEDURE actualizarAutor(unIdAutor int, unNombre VARCHAR(45), unApellido VARCHAR(45))
 BEGIN
     UPDATE Autor
-    SET nombre = unNombre
+    SET nombre = unNombre,
+        apellido = unApellido
     WHERE idAutor = unIdAutor;
 END $$
 

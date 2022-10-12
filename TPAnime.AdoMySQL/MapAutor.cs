@@ -21,6 +21,8 @@ namespace TPAnime.AdoMySQL
             BP.CrearParametroSalida("unidAutor").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).AgregarParametro();
 
             BP.CrearParametro("unNombre").SetTipoVarchar(45).SetValor(autor.Nombre).AgregarParametro();
+            BP.CrearParametro("unApellido").SetTipoVarchar(45).SetValor(autor.Apellido).AgregarParametro();
+
         }
 
         public void PostAltaAutor(Autor autor)
@@ -45,8 +47,8 @@ namespace TPAnime.AdoMySQL
         => new Autor()
         {
             Id = Convert.ToInt32(fila["idAutor"]),
-            Nombre = fila["nombre"].ToString()
-
+            Nombre = fila["nombre"].ToString(),
+            Apellido = fila["apellido"].ToString()
         };
         #endregion
 
@@ -68,28 +70,32 @@ namespace TPAnime.AdoMySQL
             .AgregarParametro();
         }
         #endregion
-        
+
         #region actualizarAutor
-            
-            public void actualizarAutor(Autor autor)
-            {
-                EjecutarComandoCon("actualizarAutor", ConfigurarAltaAutorActualizado, autor);
-            }
 
-            public void ConfigurarAltaAutorActualizado(Autor autor)
-            {
-                SetComandoSP("actualizarAutor");
+        public void actualizarAutor(Autor autor)
+        {
+            EjecutarComandoCon("actualizarAutor", ConfigurarAltaAutorActualizado, autor);
+        }
 
-                BP.CrearParametro("unIdAutor")
-                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-                .SetValor(autor.Id)
-                .AgregarParametro();
+        public void ConfigurarAltaAutorActualizado(Autor autor)
+        {
+            SetComandoSP("actualizarAutor");
 
-                BP.CrearParametro("unNombre")
-                .SetTipoVarchar(45)
-                .SetValor(autor.Nombre)
-                .AgregarParametro();
-            }
+            BP.CrearParametro("unIdAutor")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(autor.Id)
+            .AgregarParametro();
+
+            BP.CrearParametro("unNombre")
+            .SetTipoVarchar(45)
+            .SetValor(autor.Nombre)
+            .AgregarParametro();
+            BP.CrearParametro("unApellido")
+            .SetTipoVarchar(45)
+            .SetValor(autor.Apellido)
+            .AgregarParametro();
+        }
 
         #endregion
     }

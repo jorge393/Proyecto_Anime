@@ -39,9 +39,8 @@
                     <td>
                         <form asp-controller="Estudio" asp-action="EliminarEstudio" method="post">
                             <input type="hidden" asp-for="@estudio.Id" />
-                            <button type="submit" class="btn"><b>Eliminar</b></button>
-                            
-                            <button class="btn update"><a class="actualizar" asp-controller="Estudio"
+                            <button class="btn" type="submit"><b>Eliminar</b></button>
+                            <button type="button" class="btn update"><a class="actualizar" asp-controller="Estudio"
                                 asp-action="ActualizarEstudio" asp-route-Id="@estudio.Id"><b>Actualizar</b></a></button>
                         </form>
                     </td>
