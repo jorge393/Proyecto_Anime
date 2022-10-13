@@ -60,27 +60,9 @@ namespace TPAnime.AdoMySQL
                 Episodios = Convert.ToInt32(fila["episodios"]),
                 Lanzamiento = Convert.ToDateTime(fila["Lanzamiento"]),
                 Estado = fila["estado"].ToString(),
-                Autor = mapAutor.AutorPorid(Convert.ToInt32(fila["idautor"])),
-                Estudio = mapEstudio.EstudioPorid(Convert.ToInt32(fila["idestudio"]))
+                Autor = mapAutor.AutorPorid(Convert.ToInt32(fila["idAutor"])),
+                Estudio = mapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"]))
             };
-            public List<Anime> ObtenerAnime(Autor autor, Estudio estudio)
-            {
-                SetComandoSP("llamarAutor");
-
-                BP.CrearParametro("unidAutor")
-                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-                .SetValor(autor.Id)
-                .AgregarParametro();
-
-                SetComandoSP("llamarEstudio");
-
-                BP.CrearParametro("unidEstudio")
-                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-                .SetValor(estudio.Id)
-                .AgregarParametro();
-
-                return ColeccionDesdeSP();
-            }    
         #endregion
         
     }

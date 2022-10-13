@@ -11,18 +11,16 @@ public class AnimeController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var b = Ado.AutorPorid()
-        var a = Ado.obtenerAnimes();
         return View("Lista", Ado.obtenerAnimes());
     }
-    [HttpGet]
-    public IActionResult AgregarAnime()
-        => View();
+    // [HttpGet]
+    // public IActionResult AgregarAnime()
+    //     => View();
 
-    [HttpPost]
-    public IActionResult AgregarAnime(Anime anime)
-    {
-        Ado.altaAutor(anime);
-        return View("Lista", Ado.obtenerAnimes());
-    }
+    // [HttpPost]
+    // public IActionResult AgregarAnime(Anime anime)
+    // {
+    //     Ado.altaAutor(anime);
+    //     return View("Lista", Ado.obtenerAnimes());
+    // }
 }

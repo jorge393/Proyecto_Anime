@@ -21,6 +21,24 @@
             </tr>
         </thead>
         <tbody>
+            @foreach (Anime anime in Model)
+            {
+                <tr>
+                    <td>
+                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Nombre</b></a>
+                    </td>
+                    <td>
+                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Genero</b></a>
+                    </td>
+                    <td>
+                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Lanzamiento</b></a>
+                    </td>
+                    <td>
+                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Genero</b></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
 </body>
 
 </html>

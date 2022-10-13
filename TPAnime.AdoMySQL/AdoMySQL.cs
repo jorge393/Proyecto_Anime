@@ -68,9 +68,9 @@ namespace TPAnime.AdoMySQL
         {
             mapAnime.AltaAnime(anime);
         }
-        public List<Anime> obtenerAnimes(Autor autor, Estudio estudio)
+        public List<Anime> obtenerAnimes()
         {
-            return mapAnime.ObtenerAnime(autor, estudio);
+            return mapAnime.ObtenerAnime();
         }
         public void eliminarAnime(Anime anime)
         {
