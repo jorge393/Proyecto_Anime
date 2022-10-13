@@ -16,7 +16,12 @@
         <thead>
             <tr class="titulos">
                 <th class="nombret" scope="col"><b>Nombres</b></th>
-                <th class="nombret" scope="col"><b>Apellidos</b></th>
+                <th class="nombret" scope="col"><b>Generos</b></th>
+                <th class="nombret" scope="col"><b>Episodios</b></th>
+                <th class="nombret" scope="col"><b>Lanzamiento</b></th>
+                <th class="nombret" scope="col"><b>Estado</b></th>
+                <th class="nombret" scope="col"><b>Estudio</b></th>
+                <th class="nombret" scope="col"><b>Autor</b></th>
                 <th class="nombret" scope="col"><b>Accion</b></th>
             </tr>
         </thead>
@@ -25,16 +30,25 @@
             {
                 <tr>
                     <td>
-                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Nombre</b></a>
+                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Nombre</b></a>
                     </td>
                     <td>
-                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Genero</b></a>
+                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Genero</b></a>
                     </td>
                     <td>
-                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Lanzamiento</b></a>
+                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Episodios</b></a>
                     </td>
                     <td>
-                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Genero</b></a>
+                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Lanzamiento</b></a>
+                    </td>
+                    <td>
+                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Estado</b></a>
+                    </td>
+                    <td>
+                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Estudio.Nombre</b></a>
+                    </td>
+                    <td>
+                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Autor.Nombre</b></a>
                     </td>
                 </tr>
             }
