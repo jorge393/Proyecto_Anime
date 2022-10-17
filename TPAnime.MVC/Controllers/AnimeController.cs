@@ -13,14 +13,4 @@ public class AnimeController : Controller
     {
         return View("Lista", Ado.obtenerAnimes());
     }
-    // [HttpGet]
-    // public IActionResult AgregarAnime()
-    //     => View();
-
-    // [HttpPost]
-    // public IActionResult AgregarAnime(Anime anime)
-    // {
-    //     Ado.altaAutor(anime);
-    //     return View("Lista", Ado.obtenerAnimes());
-    // }
 }

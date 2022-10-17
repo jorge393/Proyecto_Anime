@@ -1,7 +1,7 @@
 
 -- AUTOR
 DELIMITER $$
-DROP PROCEDURE if EXISTS altaAutor $$
+DROP PROCEDURE IF EXISTS altaAutor $$
 
 CREATE PROCEDURE altaAutor (out unIdAutor int, unNombre VARCHAR(45), unApellido VARCHAR(45))
 BEGIN 
