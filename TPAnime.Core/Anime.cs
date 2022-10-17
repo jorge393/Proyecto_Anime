@@ -13,13 +13,15 @@ namespace TPAnime.Core
         public Autor Autor;
 
         public Anime() { }
-        public Anime(string nombre, string genero, int episodios, DateTime lanzamiento, string estado)
+        public Anime(string nombre, string genero, int episodios, DateTime lanzamiento, string estado, Estudio estudio, Autor autor)
         {
             Nombre = nombre;
             Genero = genero;
             Episodios = episodios;
             Lanzamiento = lanzamiento;
             Estado = estado;
+            Estudio = estudio;
+            Autor = autor;
         }
     }
 }
