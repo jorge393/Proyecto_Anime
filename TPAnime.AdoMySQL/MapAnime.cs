@@ -60,7 +60,7 @@ namespace TPAnime.AdoMySQL
                 Episodios = Convert.ToInt32(fila["episodios"]),
                 Lanzamiento = Convert.ToDateTime(fila["Lanzamiento"]),
                 Estado = fila["estado"].ToString(),
-                Estudio = mapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"]))
+                Estudio = mapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"])),
                 Autor = mapAutor.AutorPorid(Convert.ToInt32(fila["idAutor"])),
             };
         #endregion
@@ -87,7 +87,7 @@ namespace TPAnime.AdoMySQL
             .AgregarParametro();
             BP.CrearParametro("unEpisodios")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
-            .SetValor(anime.episodios)
+            .SetValor(anime.Episodios)
             .AgregarParametro();
             BP.CrearParametro("unLanzamiento")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
@@ -95,7 +95,7 @@ namespace TPAnime.AdoMySQL
             .AgregarParametro();
             BP.CrearParametro("unEstado")
             .SetTipoVarchar(45)
-            .SetValor(autor.Apellido)
+            .SetValor(anime.Genero)
             .AgregarParametro();
             BP.CrearParametro("unIdEstudio")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
@@ -117,7 +117,7 @@ namespace TPAnime.AdoMySQL
         }
 
 
-        public void ConfigurarbajaAutor(Anime anime)
+        public void ConfigurarbajaAnime(Anime anime)
         {
             SetComandoSP("eliminarAutorAnime");
 

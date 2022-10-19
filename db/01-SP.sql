@@ -11,7 +11,7 @@ BEGIN
 END $$
 
 DELIMITER $$
-DROP PROCEDURE IF EXISTS llamarAutor;
+DROP PROCEDURE IF EXISTS llamarAutor $$
 CREATE PROCEDURE llamarAutor(unIdAutor int)
 BEGIN
     SELECT *
@@ -51,7 +51,7 @@ BEGIN
             VALUE (unNombre, unDomicilio);
     SET unIdEstudio = last_insert_id();
 END $$
-DROP PROCEDURE IF EXISTS llamarEstudio;
+DROP PROCEDURE IF EXISTS llamarEstudio $$
 CREATE PROCEDURE llamarEstudio(unIdEstudio int)
 BEGIN
     SELECT *
