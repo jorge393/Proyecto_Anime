@@ -44,25 +44,35 @@ public class AnimeController : Controller
     public IActionResult ActualizarAnime(int? Id)
     {
         if (Id is null || Id == 0)
-        return NotFound();
+            return NotFound();
 
-        var anime  = Ado.AnimePorid(Id);
+        var anime = Ado.AnimePorid(Id);
         if (anime is null)
             return NotFound();
 
         var estudios = Ado.obtenerEstudio();
         var autores = Ado.obtenerAutores();
-        var vmAnime= new VMAnime(estudios, autores, anime);
+        var vmAnime = new VMAnime(estudios, autores, anime);
         return View(vmAnime);
     }
     [HttpPost]
     public IActionResult ActualizarAnime(VMAnime vmAnime)
     {
         var estudio = Ado.EstudioPorid(vmAnime.IdEstudio);
-            var autor = Ado.AutorPorid(vmAnime.idAutor);
-            var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EpisodiosAnime!, vmAnime.LanzamientoAnime!, vmAnime.EstadoAnime!, estudio, autor);
-            Anime.Id = vmAnime.IdAnime;
+        var autor = Ado.AutorPorid(vmAnime.idAutor);
+        var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EpisodiosAnime!, vmAnime.LanzamientoAnime!, vmAnime.EstadoAnime!, estudio, autor);
+        Anime.Id = vmAnime.IdAnime;
         Ado.actualizarAnime(Anime);
         return View("Lista", Ado.obtenerAnimes());
+    }
+    [HttpPost]
+    public IActionResult EliminarAnime(Anime anime)
+    {
+        Anime AnimeDelete = Ado.AnimePorid(anime.Id);
+        if (AnimeDelete is null)
+        {
+
+        }
+
     }
 }
