@@ -1,4 +1,6 @@
 @model TPAnime.Core.Anime;
+@using TPAnime.MVC.ViewModels;
+@zzz VMAnime;
 <!DOCTYPE html>
 <html>
 
@@ -25,6 +27,18 @@
                     <input asp-for="Lanzamiento" class="form-control" style="font-size:18px ;">
                     <label asp-for="Estado" class="form-label nombreLink" style="font-size:18px ;"><b>Estado</b></label>
                     <input asp-for="Estado" class="form-control" style="font-size:18px ;">
+                    <select asp-items= "zzz.Estudio" asp-for= "IdEstudio" class= "form-select">
+                        @if (zzz.IdEstudio == 0 )
+                        {
+                            <option selected = "selected" value ="" disabled>Selecione un estudio</option>>
+                        }
+                    </select>
+                    <select asp-items= "zzz.Autor" asp-for= "IdAutor" class= "form-select">
+                        @if (zzz.idAutor == 0 )
+                        {
+                            <option selected = "selected" value ="" disabled>Selecione un Autor</option>>
+                        }
+                    </select>
                 </div>
                 @* <div>
                     <select asp-for="" asp-items="@Model.CategoriasList">
