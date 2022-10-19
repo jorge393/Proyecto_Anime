@@ -64,6 +64,34 @@ namespace TPAnime.AdoMySQL
                 Estudio = mapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"]))
             };
         #endregion
+
+        #region actualizarAnime
+
+        public void actualizarAutor(Anime anime)
+        {
+            EjecutarComandoCon("actualizarAnime", ConfigurarAltaAnimeActualizado, anime);
+        }
+
+        public void ConfigurarAltaAnimeActualizado(Anime anime)
+        {
+            SetComandoSP("actualizarAnime");
+
+            BP.CrearParametro("unIdAnime")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(anime.Id)
+            .AgregarParametro();
+
+            BP.CrearParametro("unNombre")
+            .SetTipoVarchar(45)
+            .SetValor(autor.Nombre)
+            .AgregarParametro();
+            BP.CrearParametro("unApellido")
+            .SetTipoVarchar(45)
+            .SetValor(autor.Apellido)
+            .AgregarParametro();
+        }
+
+        #endregion
         
     }
 }
