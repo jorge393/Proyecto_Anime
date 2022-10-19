@@ -34,7 +34,7 @@ public class AnimeController : Controller
         {
             var estudio = Ado.EstudioPorid(vmAnime.IdEstudio);
             var autor = Ado.AutorPorid(vmAnime.idAutor);
-            var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EspisodiosAnime!, vmAnime.LanzamientoAnime, vmAnime.EstadoAnime!, estudio, autor);
+            var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EpisodiosAnime!, vmAnime.LanzamientoAnime, vmAnime.EstadoAnime!, estudio, autor);
             Ado.altaAnime(Anime);
         }
 

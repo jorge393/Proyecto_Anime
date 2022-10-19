@@ -10,7 +10,7 @@ namespace TPAnime.MVC.ViewModels
         public SelectList? Autores { get; set; }
         public string? NombreAnime { get; set; }
         public string? GeneroAnime { get; set; }
-        public int EspisodiosAnime { get; set; }
+        public int EpisodiosAnime { get; set; }
         public DateTime LanzamientoAnime { get; set; }
         public string? EstadoAnime { get; set; }
 
@@ -44,7 +44,7 @@ namespace TPAnime.MVC.ViewModels
                                     selectedValue: anime.Id);
             NombreAnime = anime.Nombre;
             GeneroAnime = anime.Genero;
-            EspisodiosAnime = anime.Episodios;
+            EpisodiosAnime = anime.Episodios;
             LanzamientoAnime = anime.Lanzamiento;
             EstadoAnime = anime.Estado;
             IdAnime = anime.Id;

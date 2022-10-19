@@ -1,6 +1,5 @@
-@model TPAnime.Core.Anime;
 @using TPAnime.MVC.ViewModels;
-@zzz VMAnime;
+@model VMAnime;
 <!DOCTYPE html>
 <html>
 
@@ -17,26 +16,26 @@
             <form asp-action="AgregarAnime" method="post">
                 <div asp-validation-summary="All"></div>
                 <div class="mb-2">
-                    <label asp-for="Nombre" class="form-label nombreLink" style="font-size:18px ;"><b>Nombre</b></label>
-                    <input asp-for="Nombre" class="form-control" style="font-size:18px ;">
-                    <label asp-for="Genero" class="form-label nombreLink" style="font-size:18px ;"><b>Genero</b></label>
-                    <input asp-for="Genero" class="form-control" style="font-size:18px ;">
-                    <label asp-for="Episodios" class="form-label nombreLink" style="font-size:18px ;"><b>Episodios</b></label>
-                    <input asp-for="Episodios" class="form-control" style="font-size:18px ;">
-                    <label asp-for="Lanzamiento" class="form-label nombreLink" style="font-size:18px ;"><b>Lanzamiento</b></label>
-                    <input asp-for="Lanzamiento" class="form-control" style="font-size:18px ;">
-                    <label asp-for="Estado" class="form-label nombreLink" style="font-size:18px ;"><b>Estado</b></label>
-                    <input asp-for="Estado" class="form-control" style="font-size:18px ;">
-                    <select asp-items= "zzz.Estudio" asp-for= "IdEstudio" class= "form-select">
-                        @if (zzz.IdEstudio == 0 )
+                    <label asp-for="NombreAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Nombre</b></label>
+                    <input asp-for="NombreAnime" class="form-control" style="font-size:18px ;">
+                    <label asp-for="GeneroAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Genero</b></label>
+                    <input asp-for="GeneroAnime" class="form-control" style="font-size:18px ;">
+                    <label asp-for="EpisodiosAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Episodios</b></label>
+                    <input asp-for="EpisodiosAnime" class="form-control" style="font-size:18px ;">
+                    <label asp-for="LanzamientoAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Lanzamiento</b></label>
+                    <input asp-for="LanzamientoAnime" class="form-control" style="font-size:18px ;">
+                    <label asp-for="EstadoAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Estado</b></label>
+                    <input asp-for="EstadoAnime" class="form-control" style="font-size:18px ;">
+                    <select asp-items= "Model.Estudios" asp-for= "IdEstudio" class= "form-select">
+                        @if (Model.IdEstudio == 0 )
                         {
-                            <option selected = "selected" value ="" disabled>Selecione un estudio</option>>
+                            <option selected="selected" value ="" disabled>Selecione un estudio</option>
                         }
                     </select>
-                    <select asp-items= "zzz.Autor" asp-for= "IdAutor" class= "form-select">
-                        @if (zzz.idAutor == 0 )
+                    <select asp-items= "Model.Autores" asp-for= "idAutor" class= "form-select">
+                        @if (Model.idAutor == 0 )
                         {
-                            <option selected = "selected" value ="" disabled>Selecione un Autor</option>>
+                            <option selected = "selected" value ="" disabled>Selecione un Autor</option>
                         }
                     </select>
                 </div>
