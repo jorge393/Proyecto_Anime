@@ -84,30 +84,43 @@ END $$
 DELIMITER $$
 DROP PROCEDURE if EXISTS altaAnime $$
 
-CREATE PROCEDURE altaAnime (out unIdAnime int, unNombre VARCHAR(45),unGenero varchar(45), unEpisodios INT, unLanzamiento DATE, unEstado varchar(45),unidEstudio int, unidAutor int)
+CREATE PROCEDURE altaAnime (out unIdAnime int, unNombre VARCHAR(50),unGenero varchar(45), unEpisodios INT, unLanzamiento DATE, unEstado varchar(45),unidEstudio int, unidAutor int)
 BEGIN 
     INSERT INTO Anime (nombre, genero, episodios, lanzamiento, estado, idEstudio,idAutor)
             VALUE (unNombre, unGenero, unEpisodios, unLanzamiento, unEstado,unidEstudio,unidAutor);
     SET unIdAnime = last_insert_id();
 END $$
 
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS llamarAnime $$
+
+CREATE PROCEDURE llamarAnime(unIdAnime INT)
+BEGIN
+    SELECT *
+    FROM anime
+    WHERE idAnime = unIdAnime;
+END $$
 DELIMITER $$
 DROP PROCEDURE IF EXISTS eliminarAnime $$
-CREATE PROCEDURE eliminarAnime(unId int)
+CREATE PROCEDURE eliminarAnime(unIdAnime int)
 BEGIN
     DELETE FROM Anime
-    WHERE idAnime = unId;
+    WHERE idAnime = unIdAnime;
 END $$
 
 
 DELIMITER $$
 DROP PROCEDURE IF EXISTS ActualizarAnime $$
-CREATE PROCEDURE ActualizarAnime(unId int, unNombre VARCHAR(45), unEpisodios INT, unLanzamiento DATE, unEstado VARCHAR(45))
+CREATE PROCEDURE ActualizarAnime(unIdAnime int, unNombre VARCHAR(50), unGenero VARCHAR(45), unEpisodios INT, unLanzamiento DATE, unEstado VARCHAR(45), unIdEstudio INT, unIdAutor INT)
 BEGIN
     UPDATE Anime
-    SET Nombre = unNombre
-    AND Episodios = unEpisodios
-    AND Lanzamiento = unLanzamiento
-    AND Estado = UnEstado
-    WHERE idAnime = unId;
+    SET nombre = unNombre,
+        genero = unGenero,
+        episodios = unEpisodios,
+        lanzamiento = unLanzamiento,
+        estado = unEstado,
+        idEstudio = unIdEstudio,
+        idAutor = unIdAutor
+    WHERE idAnime = unIdAnime;
 END $$

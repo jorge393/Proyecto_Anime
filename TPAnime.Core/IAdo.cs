@@ -27,7 +27,7 @@ namespace TPAnime.Core
         void altaAnime(Anime anime);
         // List<Anime> obtenerAnimes(Autor autor, Estudio estudio);
         List<Anime> obtenerAnimes();
-        Anime AnimePorid(int id);
+        Anime AnimePorid(int? id);
         void eliminarAnime(Anime anime);
         void actualizarAnime(Anime anime);
         #endregion

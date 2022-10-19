@@ -43,10 +43,6 @@ html {
     color: white;
 }
 
-.name {
-    padding-top: 5rem;
-}
-
 .nombret {
     color: white;
 }
@@ -55,5 +51,4 @@ html {
     text-decoration: none;
     color: white;
     font-size: 17px;
-    padding-top: 5rem;
 }

@@ -39,7 +39,7 @@
                         <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Episodios</b></a>
                     </td>
                     <td>
-                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Lanzamiento</b></a>
+                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Lanzamiento.ToShortDateString()</b></a>
                     </td>
                     <td>
                         <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Estado</b></a>
@@ -50,10 +50,19 @@
                     <td>
                         <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Autor.Nombre</b></a>
                     </td>
+                    <td>
+                        <form asp-controller="Anime" asp-action="EliminarAnime" method="post">
+                            <input type="hidden" asp-for="@anime.Id" />
+                            <button type="submit" class="btn"><b>Eliminar</b></button>
+                            <button type="button" class="btn update"><a class="actualizar" asp-controller="Anime"
+                                asp-action="ActualizarAnime" asp-route-id="@anime.Id"><b>Actualizar</b></a></button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
-        <button type="button" class="btn nuevo"><a class="nuevoautor" asp-controller="Anime" asp-action="AgregarAnime"><b>Agregar anime</b></a></button>
+    </table>
+    <button type="button" class="btn nuevo"><a class="nuevoautor" asp-controller="Anime" asp-action="AgregarAnime"><b>Agregar anime</b></a></button>
 </body>
 
 </html>

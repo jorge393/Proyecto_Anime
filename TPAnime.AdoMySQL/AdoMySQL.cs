@@ -72,23 +72,19 @@ namespace TPAnime.AdoMySQL
         {
             return mapAnime.ObtenerAnime();
         }
+        public Anime AnimePorid(int? id)
+        {
+            return mapAnime.AnimePorid(id);
+        }
         public void eliminarAnime(Anime anime)
         {
-            throw new NotImplementedException();
+            mapAnime.eliminarAnime(anime);
         }
-
-
-
-
         public void actualizarAnime(Anime anime)
         {
-            throw new NotImplementedException();
+            mapAnime.actualizarAnime(anime);
         }
 
 
-        public Anime AnimePorid(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
