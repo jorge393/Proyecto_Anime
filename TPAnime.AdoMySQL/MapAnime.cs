@@ -67,7 +67,7 @@ namespace TPAnime.AdoMySQL
 
         #region actualizarAnime
 
-        public void actualizarAutor(Anime anime)
+        public void actualizarAnime(Anime anime)
         {
             EjecutarComandoCon("actualizarAnime", ConfigurarAltaAnimeActualizado, anime);
         }
@@ -83,11 +83,27 @@ namespace TPAnime.AdoMySQL
 
             BP.CrearParametro("unNombre")
             .SetTipoVarchar(45)
-            .SetValor(autor.Nombre)
+            .SetValor(anime.Nombre)
             .AgregarParametro();
-            BP.CrearParametro("unApellido")
+            BP.CrearParametro("unEpisodios")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(anime.episodios)
+            .AgregarParametro();
+            BP.CrearParametro("unLanzamiento")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+            .SetValor(anime.Lanzamiento)
+            .AgregarParametro();
+            BP.CrearParametro("unEstado")
             .SetTipoVarchar(45)
             .SetValor(autor.Apellido)
+            .AgregarParametro();
+            BP.CrearParametro("unIdAutor")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(anime.Autor.Id)
+            .AgregarParametro();
+            BP.CrearParametro("unIdEstudio")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .SetValor(anime.Estudio.Id)
             .AgregarParametro();
         }
 

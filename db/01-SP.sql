@@ -84,10 +84,10 @@ END $$
 DELIMITER $$
 DROP PROCEDURE if EXISTS altaAnime $$
 
-CREATE PROCEDURE altaAnime (out unIdAnime int, unNombre VARCHAR(45),ungenero varchar(45), unEpisodios INT, unLanzamiento DATE, unEstado varchar(45) )
+CREATE PROCEDURE altaAnime (out unIdAnime int, unNombre VARCHAR(45),ungenero varchar(45), unEpisodios INT, unLanzamiento DATE, unEstado varchar(45),unidEstudio int, unidAutor int)
 BEGIN 
-    INSERT INTO Anime (nombre, genero, episodios, lanzamiento, estado)
-            VALUE (unNombre, ungenero, unEpisodios, unLanzamiento, unEstado);
+    INSERT INTO Anime (nombre, genero, episodios, lanzamiento, estado, idEstudio,idAutor)
+            VALUE (unNombre, ungenero, unEpisodios, unLanzamiento, unEstado,unidEstudio,unidAutor);
     SET unIdAnime = last_insert_id();
 END $$
 
