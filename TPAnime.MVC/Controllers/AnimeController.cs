@@ -71,8 +71,11 @@ public class AnimeController : Controller
         Anime AnimeDelete = Ado.AnimePorid(anime.Id);
         if (AnimeDelete is null)
         {
-
+            return NotFound();
         }
+        else
+            Ado.eliminarAnime(anime);
 
+        return Redirect(nameof(Index));
     }
 }

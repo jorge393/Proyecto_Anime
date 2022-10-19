@@ -20,49 +20,49 @@ namespace TPAnime.AdoMySQL
         }
 
         #region AltaAnime
-            public void AltaAnime(Anime anime)
-            => EjecutarComandoCon("altaAnime", ConfigurarAltaAnime, PostAltaAnime, anime);
+        public void AltaAnime(Anime anime)
+        => EjecutarComandoCon("altaAnime", ConfigurarAltaAnime, PostAltaAnime, anime);
 
-            private void ConfigurarAltaAnime(Anime anime)
-            {
-                SetComandoSP("altaAnime");
+        private void ConfigurarAltaAnime(Anime anime)
+        {
+            SetComandoSP("altaAnime");
 
-                BP.CrearParametroSalida("unIdAnime").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).AgregarParametro();
+            BP.CrearParametroSalida("unIdAnime").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).AgregarParametro();
 
-                BP.CrearParametro("unnombre").SetTipoVarchar(45).SetValor(anime.Nombre).AgregarParametro();
+            BP.CrearParametro("unnombre").SetTipoVarchar(45).SetValor(anime.Nombre).AgregarParametro();
 
-                BP.CrearParametro("ungenero").SetTipoVarchar(45).SetValor(anime.Genero).AgregarParametro();
+            BP.CrearParametro("ungenero").SetTipoVarchar(45).SetValor(anime.Genero).AgregarParametro();
 
-                BP.CrearParametro("unEpisodios").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Episodios).AgregarParametro();
+            BP.CrearParametro("unEpisodios").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Episodios).AgregarParametro();
 
-                BP.CrearParametro("unlanzamiento").SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime).SetValor(anime.Lanzamiento).AgregarParametro();
+            BP.CrearParametro("unlanzamiento").SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime).SetValor(anime.Lanzamiento).AgregarParametro();
 
-                BP.CrearParametro("unestado").SetTipoVarchar(45).SetValor(anime.Estado).AgregarParametro();
+            BP.CrearParametro("unestado").SetTipoVarchar(45).SetValor(anime.Estado).AgregarParametro();
 
-                BP.CrearParametro("unIdAutor").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Autor.Id).AgregarParametro();
+            BP.CrearParametro("unIdAutor").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Autor.Id).AgregarParametro();
 
-                BP.CrearParametro("unIdEstudio").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Estudio.Id).AgregarParametro();
+            BP.CrearParametro("unIdEstudio").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Estudio.Id).AgregarParametro();
 
-            }
-            public void PostAltaAnime(Anime anime)
-                => anime.Id = Convert.ToInt32(GetParametro("unidAnime").Value);    
+        }
+        public void PostAltaAnime(Anime anime)
+            => anime.Id = Convert.ToInt32(GetParametro("unidAnime").Value);
         #endregion
 
-        
+
         #region ObtenerAnimes
-            public List<Anime> ObtenerAnime() => ColeccionDesdeTabla();
-            public override Anime ObjetoDesdeFila(DataRow fila)
-            => new Anime()
-            {
-                Id = Convert.ToInt32(fila["idAnime"]),
-                Nombre = fila["nombre"].ToString(),
-                Genero = fila["genero"].ToString(),
-                Episodios = Convert.ToInt32(fila["episodios"]),
-                Lanzamiento = Convert.ToDateTime(fila["lanzamiento"]),
-                Estado = fila["estado"].ToString(),
-                Estudio = MapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"])),
-                Autor = MapAutor.AutorPorid(Convert.ToInt32(fila["idAutor"])),
-            };
+        public List<Anime> ObtenerAnime() => ColeccionDesdeTabla();
+        public override Anime ObjetoDesdeFila(DataRow fila)
+        => new Anime()
+        {
+            Id = Convert.ToInt32(fila["idAnime"]),
+            Nombre = fila["nombre"].ToString(),
+            Genero = fila["genero"].ToString(),
+            Episodios = Convert.ToInt32(fila["episodios"]),
+            Lanzamiento = Convert.ToDateTime(fila["lanzamiento"]),
+            Estado = fila["estado"].ToString(),
+            Estudio = MapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"])),
+            Autor = MapAutor.AutorPorid(Convert.ToInt32(fila["idAutor"])),
+        };
         #endregion
 
         #region AnimePorId
@@ -123,7 +123,7 @@ namespace TPAnime.AdoMySQL
         }
 
         #endregion
-        
+
         #region eliminarAnime
         public void eliminarAnime(Anime anime)
         {
@@ -132,7 +132,7 @@ namespace TPAnime.AdoMySQL
         }
         public void ConfigurarbajaAnime(Anime anime)
         {
-            SetComandoSP("eliminarAutorAnime");
+            SetComandoSP("eliminarAnime");
 
             BP.CrearParametro("unIdAnime")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
@@ -140,6 +140,6 @@ namespace TPAnime.AdoMySQL
             .AgregarParametro();
         }
         #endregion
-        
+
     }
 }
