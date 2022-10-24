@@ -12,6 +12,7 @@
 
 <body>
     <h2><b>Animes</b></h2>
+    <div class="table-responsive">
     <table class="table">
         <thead>
             <tr class="titulos">
@@ -45,10 +46,10 @@
                         <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Estado</b></a>
                     </td>
                     <td>
-                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Estudio.Nombre</b></a>
+                        <a class="nombreLink" asp-controller="Estudio" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Estudio.Nombre</b></a>
                     </td>
                     <td>
-                        <a class="nombreLink" asp-controller="Anime" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Autor.Nombre</b></a>
+                        <a class="nombreLink" asp-controller="Autor" asp-action="Index" asp-route-id="@anime.Id"><b class="name">@anime.Autor.Nombre</b></a>
                     </td>
                     <td>
                         <form asp-controller="Anime" asp-action="EliminarAnime" method="post">
@@ -62,6 +63,8 @@
             }
         </tbody>
     </table>
+    </div>
+    <br>
     <button type="button" class="btn nuevo"><a class="nuevoautor" asp-controller="Anime" asp-action="AgregarAnime"><b>Agregar anime</b></a></button>
 </body>
 

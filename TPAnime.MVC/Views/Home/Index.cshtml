@@ -9,17 +9,20 @@
 </head>
 <body>
     <div class="contenedor">
-        <div>
-            <h2><b>Nuestras opciones</b></h2>
-        </div>
+       <div class="imagen">
+        <img  src="~/img/demonslayer.png"  class="img-fluid" alt="...">
+       </div>
         <div class="opciones">
-            <button type="button" class="btn"><a class="opcion" asp-controller="Autor" asp-action="Index"><b>Autores</b></a></button>
-            <button type="button" class="btn "><a class="opcion" asp-controller="Estudio" asp-action="Index"><b>Estudios</b></a></button>
-            <button type="button" class="btn"><a class="opcion" asp-controller="Anime" asp-action="Index"><b>Animes</b></a></button>
+            @* <h2><b>Tablas</b></h2> *@
+            <a class="opcion" asp-controller="Autor" asp-action="Index"><button type="button" class="btn opcion"><b>Autores</b></button></a>
+            <a class="opcion" asp-controller="Estudio" asp-action="Index"><button type="button" class="btn opcion"><b>Estudios</b></button></a>
+            <a class="opcion" asp-controller="Anime" asp-action="Index"><button type="button" class="btn opcion"><b>Animes</b></button></a>
         </div>
+        <div class="imagen">
+            <img src="~/img/tanjiro.png"  class="img-fluid" alt="...">
+        </div>
+        
     </div>
     
-
-    @* <a asp-controller="Producto" asp-action="Index">Productos</a> *@
 </body>
 </html>
