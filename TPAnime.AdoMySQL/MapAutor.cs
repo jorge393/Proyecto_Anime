@@ -2,11 +2,13 @@ using et12.edu.ar.AGBD.Ado;
 using et12.edu.ar.AGBD.Mapeadores;
 using System.Data;
 using TPAnime.Core;
+using System;
 
 namespace TPAnime.AdoMySQL
 {
     public class MapAutor : Mapeador<Autor>
     {
+        public Anime anime {get;set;}
         public MapAutor(AdoAGBD ado) : base(ado) => Tabla = "Autor";
 
         #region AltaAutores
@@ -56,12 +58,21 @@ namespace TPAnime.AdoMySQL
         public void eliminarAutor(Autor autor)
         {
 
+        // try
+        // {
             EjecutarComandoCon("eliminarAutor", ConfigurarbajaAutor, autor);
+        // }
+        // catch (System.Exception a)
+        // {
+        //     var text = ("error, anime tiene una referencia a este autor")
+        //     MessageBox.Show(text);
+        // }
         }
 
 
         public void ConfigurarbajaAutor(Autor autor)
         {
+            
             SetComandoSP("eliminarAutor");
 
             BP.CrearParametro("unIdAutor")
