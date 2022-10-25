@@ -1,4 +1,5 @@
 body {
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     background-color: rgba(2, 2, 10, 255) !important;
     position: relative;
@@ -32,17 +33,6 @@ html {
     color: white;
 }
 
-
-.nuevo {
-    font-size: 18px;
-    background-color: #f07330;
-}
-
-.nuevoautor {
-    text-decoration: none;
-    color: white;
-}
-
 .nombret {
     color: white;
 }
@@ -51,4 +41,9 @@ html {
     text-decoration: none;
     color: white;
     font-size: 17px;
+}
+.btnAgregar {
+    background-color: #f07330;
+    text-decoration: none;
+    color: white;
 }

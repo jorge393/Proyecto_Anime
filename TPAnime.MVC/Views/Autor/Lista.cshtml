@@ -4,6 +4,8 @@
 <html>
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/listas.css" asp-append-version="true" />
@@ -45,7 +47,7 @@
     </table>
     </div>
     <br>
-    <button type="button" class="btn nuevo"><a class="nuevoautor" asp-controller="Autor" asp-action="AgregarAutor"><b>Agregar autor</b></a></button>
+    <a asp-controller="Autor" asp-action="AgregarAutor"><button type="button" class="btn btnAgregar"><b>Agregar autor</b></button></a>
 </body>
 
 </html>
