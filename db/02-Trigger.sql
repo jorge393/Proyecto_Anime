@@ -1,18 +1,15 @@
 DELIMITER $$
-
-CREATE TRIGGER befdeleAutor BEFORE DELETE ON Autor
+CREATE TRIGGER befdeleteAutor BEFORE DELETE ON Autor
 FOR EACH ROW
 BEGIN
+     DELETE FROM Anime
+     WHERE idAutor = OLD.idAutor;
+END $$
 
-    DELETE FROM Anime
-    WHERE idAutor = OLD.idAutor;
-
-
-    -- DECLARE varId INTEGER;
-    -- SELECT idAutor INTO varId
-    -- FROM Anime
-    -- WHERE idAutor = NEW.idAutor;
-    -- IF(varId = idAutor)THEN
-    -- DELETE IdAutor From Anime WHERE 
-
+DELIMITER $$
+CREATE TRIGGER befdeleteEstudio BEFORE DELETE ON Estudio
+FOR EACH ROW
+BEGIN
+     DELETE FROM Estudio
+     WHERE idEstudio = OLD.idEstudio;
 END $$
