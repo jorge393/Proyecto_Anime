@@ -2,6 +2,7 @@
 @model VMAnime;
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
 
@@ -10,38 +11,45 @@
     <link rel="stylesheet" href="~/css/actualizar.css" asp-append-version="true" />
     <title>Actualizar Anime</title>
 </head>
+
 <body>
     <main class="cuerpo">
         <div class="contenedor">
             <form asp-action="ActualizarAnime" method="post">
                 <div asp-validation-summary="All"></div>
                 <div class="mb-2">
-                    <label asp-for="NombreAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Nombre</b></label>
+                    <label asp-for="NombreAnime" class="form-label nombreLink"
+                        style="font-size:18px ;"><b>Nombre</b></label>
                     <input asp-for="NombreAnime" class="form-control" style="font-size:18px ;">
 
-                    <label asp-for="GeneroAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Genero</b></label>
+                    <label asp-for="GeneroAnime" class="form-label nombreLink"
+                        style="font-size:18px ;"><b>Genero</b></label>
                     <input asp-for="GeneroAnime" class="form-control" style="font-size:18px ;">
 
-                    <label asp-for="EpisodiosAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Episodios</b></label>
+                    <label asp-for="EpisodiosAnime" class="form-label nombreLink"
+                        style="font-size:18px ;"><b>Episodios</b></label>
                     <input asp-for="EpisodiosAnime" class="form-control" style="font-size:18px ;">
 
-                    <label asp-for="LanzamientoAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Lanzamiento</b></label>
+                    <label asp-for="LanzamientoAnime" class="form-label nombreLink"
+                        style="font-size:18px ;"><b>Lanzamiento</b></label>
                     <input asp-for="LanzamientoAnime" class="form-control" style="font-size:18px ;">
 
-                    <label asp-for="EstadoAnime" class="form-label nombreLink" style="font-size:18px ;"><b>Estado</b></label>
+                    <label asp-for="EstadoAnime" class="form-label nombreLink"
+                        style="font-size:18px ;"><b>Estado</b></label>
                     <input asp-for="EstadoAnime" class="form-control" style="font-size:18px ;">
-                    <input type="hidden" asp-for="IdAnime"/>
-
-                    <select asp-items= "Model.Estudios" asp-for= "IdEstudio" class= "form-select">
-                        @if (Model.IdEstudio == 0 )
+                    <br>
+                    <input type="hidden" asp-for="IdAnime" />
+                    <select asp-items="Model.Estudios" asp-for="IdEstudio" class="form-select">
+                        @if (Model.IdEstudio == 0)
                         {
-                            <option selected="selected" value ="" disabled>Selecione un estudio</option>
+                            <option selected="selected" value="" disabled>Selecione un estudio</option>
                         }
                     </select>
-                    <select asp-items= "Model.Autores" asp-for= "idAutor" class= "form-select">
-                        @if (Model.idAutor == 0 )
+                    <br>
+                    <select asp-items="Model.Autores" asp-for="idAutor" class="form-select">
+                        @if (Model.idAutor == 0)
                         {
-                            <option selected = "selected" value ="" disabled>Selecione un Autor</option>
+                            <option selected="selected" value="" disabled>Selecione un Autor</option>
                         }
                     </select>
                 </div>
@@ -52,4 +60,5 @@
         </div>
     </main>
 </body>
+
 </html>
