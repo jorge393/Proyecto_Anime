@@ -3,11 +3,16 @@ body {
     font-size: 14px;
     background-color: rgba(2,2,10,255) !important;
     position: relative;
-    min-height: 100%;
     color: #0cc7b8;
+    background-image: url("../img/goku.png");
+    background-repeat: no-repeat;
+    background-position: 10px 30px;
 }
 html{
     background-color: rgba(2,2,10,255) !important;
+    background-image: url("../img/goku.png");
+    background-repeat: no-repeat;
+    background-position: 10px 30px;
 
 }
 .contenedor{
@@ -42,7 +47,3 @@ html{
     color: white;
 }
 
-.imagen{
-    width: 30rem;
-    height: 30rem;
-}
