@@ -1,28 +1,31 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    background-color: rgba(2,2,10,255) !important;
+    background-color: rgba(2, 2, 10, 255) !important;
     position: relative;
     color: #0cc7b8;
     background-image: url("../img/goku.png");
     background-repeat: no-repeat;
-    background-position: 10px 30px;
+    background-position: top center;
 }
-html{
-    background-color: rgba(2,2,10,255) !important;
+
+html {
+    background-color: rgba(2, 2, 10, 255) !important;
     background-image: url("../img/goku.png");
     background-repeat: no-repeat;
-    background-position: 10px 30px;
+    background-position: top center;
 
 }
-.contenedor{
-    display:flex;
+
+.contenedor {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.opciones{
-    display:flex;
+
+.opciones {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -30,20 +33,21 @@ html{
     width: 15rem;
     height: 12rem;
 }
-.btn{
+
+.btn {
     width: 10rem;
     background-color: #f07330;
 }
-.opcion{
+
+.opcion {
     text-decoration: none;
     color: white;
     font-size: 20px;
     border-radius: 0.5rem;
-    
+
 }
 
-.opcion:hover{
+.opcion:hover {
     font-size: 20.5px;
     color: white;
 }
-
