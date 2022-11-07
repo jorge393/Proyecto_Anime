@@ -20,19 +20,19 @@ namespace TPAnime.AdoMySQL
             mapAnime = new MapAnime(mapAutor, mapEstudio);
         }
         //AUTOR
-        public void altaAutor(Autor autor)
+        public async Task altaAutor(Autor autor)
         {
-            mapAutor.altaAutor(autor);
+            await mapAutor.altaAutor(autor);
         }
-        public List<Autor> obtenerAutores()
+        Task<List<Autor>> IAdo.obtenerAutoresAsync()
         {
-            return mapAutor.ObtenerAutores();
+            return mapAutor.ObtenerAutoresAsync();
         }
         public void eliminarAutor(Autor autor) => mapAutor.eliminarAutor(autor);
 
-        public Autor AutorPorid(int id)
+        public async Task<Autor> AutorPoridAsync(int id)
         {
-            return mapAutor.AutorPorid(id);
+            return await mapAutor.AutorPoridAsync(id);
         }
         public void actualizarAutor(Autor autor)
         {
@@ -84,7 +84,5 @@ namespace TPAnime.AdoMySQL
         {
             mapAnime.actualizarAnime(anime);
         }
-
-
     }
 }

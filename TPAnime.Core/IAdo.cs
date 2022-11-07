@@ -8,11 +8,11 @@ namespace TPAnime.Core
     public interface IAdo
     {
         #region Autor
-        void altaAutor(Autor autor);
-        List<Autor> obtenerAutores();
-        void eliminarAutor(Autor autor);
+        public Task altaAutor(Autor autor);
+        Task<List<Autor>> obtenerAutoresAsync();
         void actualizarAutor(Autor autor);
-        Autor AutorPorid(int id);
+        void eliminarAutor(Autor autor);
+        Task<Autor> AutorPoridAsync(int id);
         #endregion
 
         #region Estudio

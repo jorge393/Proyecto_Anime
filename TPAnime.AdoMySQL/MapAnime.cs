@@ -52,8 +52,7 @@ namespace TPAnime.AdoMySQL
         #region ObtenerAnimes
         public List<Anime> ObtenerAnime() => ColeccionDesdeTabla();
         public override Anime ObjetoDesdeFila(DataRow fila)
-        => new Anime()
-        {
+        =>  new Anime(){
             Id = Convert.ToInt32(fila["idAnime"]),
             Nombre = fila["nombre"].ToString(),
             Genero = fila["genero"].ToString(),
@@ -61,7 +60,12 @@ namespace TPAnime.AdoMySQL
             Lanzamiento = Convert.ToDateTime(fila["lanzamiento"]),
             Estado = fila["estado"].ToString(),
             Estudio = MapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"])),
-            Autor = MapAutor.AutorPorid(Convert.ToInt32(fila["idAutor"])),
+            Autor = new Autor()
+            {
+                Id = 232,
+                Nombre = "asda",
+                Apellido = "asdfas",
+            }
         };
         #endregion
 

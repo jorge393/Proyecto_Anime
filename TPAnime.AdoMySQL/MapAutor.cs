@@ -12,7 +12,7 @@ namespace TPAnime.AdoMySQL
         public MapAutor(AdoAGBD ado) : base(ado) => Tabla = "Autor";
 
         #region AltaAutores
-        public void altaAutor(Autor autor)
+        public  async Task altaAutor(Autor autor)
         {
             EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
         }
@@ -21,7 +21,6 @@ namespace TPAnime.AdoMySQL
             SetComandoSP("altaAutor");
 
             BP.CrearParametroSalida("unidAutor").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).AgregarParametro();
-
             BP.CrearParametro("unNombre").SetTipoVarchar(45).SetValor(autor.Nombre).AgregarParametro();
             BP.CrearParametro("unApellido").SetTipoVarchar(45).SetValor(autor.Apellido).AgregarParametro();
 
@@ -31,7 +30,7 @@ namespace TPAnime.AdoMySQL
         => autor.Id = Convert.ToInt32(GetParametro("unidAutor").Value);
 
         #endregion
-        public Autor AutorPorid(int Id)
+        public async Task<Autor> AutorPoridAsync(int Id)
         {
             SetComandoSP("llamarAutor");
 
@@ -40,11 +39,12 @@ namespace TPAnime.AdoMySQL
               .SetValor(Id)
               .AgregarParametro();
 
-            return ElementoDesdeSP();
+            return await  ElementoDesdeSPAsync();
         }
 
         #region ObtenerAutores
-        public List<Autor> ObtenerAutores() => ColeccionDesdeTabla();
+        public async Task<List<Autor>> ObtenerAutoresAsync() => await ColeccionDesdeTablaAsync();
+
         public override Autor ObjetoDesdeFila(DataRow fila)
         => new Autor()
         {

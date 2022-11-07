@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
+using System.Threading;
 using TPAnime.Core;
 
 namespace TPAnime.MVC.Controllers;
@@ -9,31 +11,37 @@ public class AutorController : Controller
 
     // VER AUTORES
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        // var autores = Ado.obtenerAutores();
-        return View("Lista", Ado.obtenerAutores());
+        var autores = await Ado.obtenerAutoresAsync();
+        return View("Lista", autores);
     }
+
+
 
 
     // AGREGAR AUTOR
     [HttpGet]
-    public IActionResult AgregarAutor()
-        => View();
+    public IActionResult AgregarAutor() => View();
 
     [HttpPost]
-    public IActionResult AgregarAutor(Autor autor)
+    public async Task<IActionResult> AgregarAutor(Autor autor)
     {
-        Ado.altaAutor(autor);
-        return View("Lista", Ado.obtenerAutores());
+        await Ado.altaAutor(autor);
+        return View("Lista", Ado.obtenerAutoresAsync());
     }
+
+
+
+
+
 
     //ELIMINAR
     [HttpPost]
-    public IActionResult EliminarAutor(Autor autor)
+    public async Task<IActionResult> EliminarAutor(Autor autor)
     {
 
-        autor = Ado.AutorPorid(autor.Id);
+         autor = await  Ado.AutorPoridAsync(autor.Id);
 
         if (autor is null)
         {
@@ -46,9 +54,9 @@ public class AutorController : Controller
     }
     //ACTUALIZAR
     [HttpGet]
-    public IActionResult ActualizarAutor(Autor autor)
+    public async Task<IActionResult> ActualizarAutor(Autor autor)
     {
-        Autor autorcap = Ado.AutorPorid(autor.Id);
+        Autor autorcap = await Ado.AutorPoridAsync(autor.Id);
         if (autorcap is null)
         {
             return NotFound();
@@ -61,7 +69,7 @@ public class AutorController : Controller
     public IActionResult ActualizarAutora(Autor autor)
     {
         Ado.actualizarAutor(autor);
-        return View("Lista", Ado.obtenerAutores());
+        return View("Lista", Ado.obtenerAutoresAsync());
     }
 }
 

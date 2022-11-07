@@ -16,16 +16,16 @@ public class AnimeController : Controller
     }
 
     [HttpGet]
-    public IActionResult AgregarAnime()
+    public async Task<IActionResult> AgregarAnime()
     {
         var Estudios = Ado.obtenerEstudio();
-        var Autores = Ado.obtenerAutores();
+        var Autores = await Ado.obtenerAutoresAsync();
         var vmAnime = new VMAnime(Estudios, Autores);
         return View(vmAnime);
     }
 
     [HttpPost]
-    public IActionResult AgregarAnime(VMAnime vmAnime)
+    public async Task<IActionResult> AgregarAnime(VMAnime vmAnime)
     {
         if (!ModelState.IsValid)
             return View(vmAnime);
@@ -33,7 +33,7 @@ public class AnimeController : Controller
         if (vmAnime.IdAnime == 0)
         {
             var estudio = Ado.EstudioPorid(vmAnime.IdEstudio);
-            var autor = Ado.AutorPorid(vmAnime.idAutor);
+            var autor = await Ado.AutorPoridAsync(vmAnime.idAutor);
             var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EpisodiosAnime!, vmAnime.LanzamientoAnime, vmAnime.EstadoAnime!, estudio, autor);
             Ado.altaAnime(Anime);
         }
@@ -41,7 +41,7 @@ public class AnimeController : Controller
     }
 
     [HttpGet]
-    public IActionResult ActualizarAnime(int? Id)
+    public async Task<IActionResult> ActualizarAnime(int? Id)
     {
         if (Id is null || Id == 0)
             return NotFound();
@@ -51,15 +51,15 @@ public class AnimeController : Controller
             return NotFound();
 
         var estudios = Ado.obtenerEstudio();
-        var autores = Ado.obtenerAutores();
+        var autores = await Ado.obtenerAutoresAsync();
         var vmAnime = new VMAnime(estudios, autores, anime);
         return View(vmAnime);
     }
     [HttpPost]
-    public IActionResult ActualizarAnime(VMAnime vmAnime)
+    public  async Task<IActionResult> ActualizarAnime(VMAnime vmAnime)
     {
         var estudio = Ado.EstudioPorid(vmAnime.IdEstudio);
-        var autor = Ado.AutorPorid(vmAnime.idAutor);
+        var autor = await Ado.AutorPoridAsync(vmAnime.idAutor);
         var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EpisodiosAnime!, vmAnime.LanzamientoAnime!, vmAnime.EstadoAnime!, estudio, autor);
         Anime.Id = vmAnime.IdAnime;
         Ado.actualizarAnime(Anime);
