@@ -9,10 +9,8 @@ namespace TPAnime.AdoMySQL
 {
     public class MapEstudio : Mapeador<Estudio>
     {
-        public MapEstudio(AdoAGBD ado) : base(ado)
-        {
-            Tabla = "Estudio";
-        }
+        public MapEstudio(AdoAGBD ado) : base(ado) => Tabla = "Estudio";
+
         public override Estudio ObjetoDesdeFila(DataRow fila)
         => new Estudio()
         {
@@ -22,7 +20,7 @@ namespace TPAnime.AdoMySQL
         };
 
         #region AltaEstudio
-            
+
         public void AltaEstudio(Estudio estudio)
             => EjecutarComandoCon("altaEstudio", ConfigurarAltaEstudio, PostAltaEstudio, estudio);
 
@@ -55,7 +53,7 @@ namespace TPAnime.AdoMySQL
         #endregion
 
         #region estudioPorid
-            
+
         public Estudio EstudioPorid(int Id)
         {
             SetComandoSP("llamarEstudio");
@@ -68,11 +66,11 @@ namespace TPAnime.AdoMySQL
             return ElementoDesdeSP();
         }
         #endregion
-        
+
         #region eliminarEstudio
         public void eliminarEstudio(Estudio estudio)
         {
-            EjecutarComandoCon("eliminarEstudio", ConfigurarbajaEstudio,estudio);
+            EjecutarComandoCon("eliminarEstudio", ConfigurarbajaEstudio, estudio);
         }
 
         public void ConfigurarbajaEstudio(Estudio estudio)
@@ -85,15 +83,15 @@ namespace TPAnime.AdoMySQL
             .AgregarParametro();
         }
         #endregion
-        
+
         #region actualizarEstudio
         public void actualizarEstudio(Estudio estudio)
         {
-            EjecutarComandoCon("actualizarEstudio", ConfigurarAltaEstudioActualizado,estudio);
+            EjecutarComandoCon("actualizarEstudio", ConfigurarAltaEstudioActualizado, estudio);
         }
 
 
-        public void ConfigurarAltaEstudioActualizado (Estudio estudio)
+        public void ConfigurarAltaEstudioActualizado(Estudio estudio)
         {
             SetComandoSP("actualizarEstudio");
 
@@ -102,15 +100,15 @@ namespace TPAnime.AdoMySQL
                 .SetValor(estudio.Id)
                 .AgregarParametro();
 
-                BP.CrearParametro("unNombre")
-                .SetTipoVarchar(45)
-                .SetValor(estudio.Nombre)
-                .AgregarParametro();
+            BP.CrearParametro("unNombre")
+            .SetTipoVarchar(45)
+            .SetValor(estudio.Nombre)
+            .AgregarParametro();
 
-                BP.CrearParametro("unDomicilio")
-                .SetTipoVarchar(45)
-                .SetValor(estudio.Domicilio)
-                .AgregarParametro();
+            BP.CrearParametro("unDomicilio")
+            .SetTipoVarchar(45)
+            .SetValor(estudio.Domicilio)
+            .AgregarParametro();
         }
         #endregion
 

@@ -8,7 +8,7 @@ namespace TPAnime.Core
     public interface IAdo
     {
         #region Autor
-        public Task altaAutor(Autor autor);
+        Task altaAutor(Autor autor);
         Task<List<Autor>> obtenerAutoresAsync();
         void actualizarAutor(Autor autor);
         void eliminarAutor(Autor autor);

@@ -8,28 +8,39 @@ namespace TPAnime.AdoMySQL
 {
     public class MapAutor : Mapeador<Autor>
     {
-        public Anime anime {get;set;}
+        // public Anime anime { get; set; }
         public MapAutor(AdoAGBD ado) : base(ado) => Tabla = "Autor";
 
         #region AltaAutores
-        public  async Task altaAutor(Autor autor)
+        public async Task altaAutorAsync(Autor autor)
         {
-            EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
+            await EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
         }
         public void ConfigurarAltaAutor(Autor autor)
         {
             SetComandoSP("altaAutor");
 
-            BP.CrearParametroSalida("unidAutor").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).AgregarParametro();
-            BP.CrearParametro("unNombre").SetTipoVarchar(45).SetValor(autor.Nombre).AgregarParametro();
-            BP.CrearParametro("unApellido").SetTipoVarchar(45).SetValor(autor.Apellido).AgregarParametro();
+            BP.CrearParametroSalida("unidAutor")
+            .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+            .AgregarParametro();
+
+            BP.CrearParametro("unNombre")
+            .SetTipoVarchar(45).
+            SetValor(autor.Nombre).
+            AgregarParametro();
+
+            BP.CrearParametro("unApellido").
+            SetTipoVarchar(45).
+            SetValor(autor.Apellido).
+            AgregarParametro();
 
         }
 
         public void PostAltaAutor(Autor autor)
         => autor.Id = Convert.ToInt32(GetParametro("unidAutor").Value);
-
         #endregion
+
+
         public async Task<Autor> AutorPoridAsync(int Id)
         {
             SetComandoSP("llamarAutor");
@@ -39,7 +50,7 @@ namespace TPAnime.AdoMySQL
               .SetValor(Id)
               .AgregarParametro();
 
-            return await  ElementoDesdeSPAsync();
+            return await ElementoDesdeSPAsync();
         }
 
         #region ObtenerAutores
@@ -58,21 +69,21 @@ namespace TPAnime.AdoMySQL
         public void eliminarAutor(Autor autor)
         {
 
-        // try
-        // {
+            // try
+            // {
             EjecutarComandoCon("eliminarAutor", ConfigurarbajaAutor, autor);
-        // }
-        // catch (System.Exception a)
-        // {
-        //     var text = ("error, anime tiene una referencia a este autor")
-        //     MessageBox.Show(text);
-        // }
+            // }
+            // catch (System.Exception a)
+            // {
+            //     var text = ("error, anime tiene una referencia a este autor")
+            //     MessageBox.Show(text);
+            // }
         }
 
 
         public void ConfigurarbajaAutor(Autor autor)
         {
-            
+
             SetComandoSP("eliminarAutor");
 
             BP.CrearParametro("unIdAutor")
@@ -102,6 +113,7 @@ namespace TPAnime.AdoMySQL
             .SetTipoVarchar(45)
             .SetValor(autor.Nombre)
             .AgregarParametro();
+
             BP.CrearParametro("unApellido")
             .SetTipoVarchar(45)
             .SetValor(autor.Apellido)

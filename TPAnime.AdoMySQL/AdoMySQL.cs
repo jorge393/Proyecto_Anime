@@ -22,7 +22,7 @@ namespace TPAnime.AdoMySQL
         //AUTOR
         public async Task altaAutor(Autor autor)
         {
-            await mapAutor.altaAutor(autor);
+            await mapAutor.altaAutorAsync(autor);
         }
         Task<List<Autor>> IAdo.obtenerAutoresAsync()
         {
