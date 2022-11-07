@@ -33,6 +33,6 @@ Create table
         idEstudio int not null,
         idAutor int not null,
         CONSTRAINT PK_Anime PRIMARY KEY (idAnime),
-        CONSTRAINT FK_Anime_Estudio FOREIGN KEY(idEstudio) REFERENCES Estudio (idEstudio),
-        CONSTRAINT FK_Anime_Autor FOREIGN KEY(idAutor) REFERENCES Autor (idAutor)
+        CONSTRAINT FK_Anime_Estudio FOREIGN KEY(idEstudio) REFERENCES Estudio (idEstudio) ON DELETE CASCADE,
+        CONSTRAINT FK_Anime_Autor FOREIGN KEY(idAutor) REFERENCES Autor (idAutor) ON DELETE CASCADE
     );

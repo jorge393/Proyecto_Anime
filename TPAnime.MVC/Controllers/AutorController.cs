@@ -27,8 +27,8 @@ public class AutorController : Controller
     [HttpPost]
     public async Task<IActionResult> AgregarAutor(Autor autor)
     {
-        await Ado.altaAutor(autor);
-        return View("Lista", Ado.obtenerAutoresAsync());
+        await Ado.altaAutorAsync(autor);
+        return View("Lista", await Ado.obtenerAutoresAsync());
     }
 
 
@@ -41,16 +41,15 @@ public class AutorController : Controller
     public async Task<IActionResult> EliminarAutor(Autor autor)
     {
 
-         autor = await  Ado.AutorPoridAsync(autor.Id);
+        autor = await Ado.AutorPoridAsync(autor.Id);
 
         if (autor is null)
         {
             return NotFound();
         }
         else
-            Ado.eliminarAutor(autor);
+           await Ado.eliminarAutorAsync(autor);
         return Redirect(nameof(Index)); //solucion a el numero negativo al eliminar
-        // return View("Lista", Ado.obtenerAutores());
     }
     //ACTUALIZAR
     [HttpGet]
@@ -66,10 +65,10 @@ public class AutorController : Controller
     }
 
     [HttpPost]
-    public IActionResult ActualizarAutora(Autor autor)
+    public async Task<IActionResult> ActualizarAutora(Autor autor)
     {
-        Ado.actualizarAutor(autor);
-        return View("Lista", Ado.obtenerAutoresAsync());
+        await Ado.actualizarAutorAsync(autor);
+        return View("Lista", await Ado.obtenerAutoresAsync());
     }
 }
 

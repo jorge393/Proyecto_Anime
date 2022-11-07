@@ -20,69 +20,48 @@ namespace TPAnime.AdoMySQL
             mapAnime = new MapAnime(mapAutor, mapEstudio);
         }
         //AUTOR
-        public async Task altaAutor(Autor autor)
-        {
-            await mapAutor.altaAutorAsync(autor);
-        }
-        Task<List<Autor>> IAdo.obtenerAutoresAsync()
-        {
-            return mapAutor.ObtenerAutoresAsync();
-        }
-        public void eliminarAutor(Autor autor) => mapAutor.eliminarAutor(autor);
+        public async Task altaAutorAsync(Autor autor) => await mapAutor.altaAutorAsync(autor);
+        
+        async Task<List<Autor>> IAdo.obtenerAutoresAsync() => await mapAutor.ObtenerAutoresAsync();
+        
+        public async Task eliminarAutorAsync(Autor autor) => await mapAutor.eliminarAutorAsync(autor);
 
-        public async Task<Autor> AutorPoridAsync(int id)
-        {
-            return await mapAutor.AutorPoridAsync(id);
-        }
-        public void actualizarAutor(Autor autor)
-        {
-            mapAutor.actualizarAutor(autor);
-        }
+        public async Task<Autor> AutorPoridAsync(int id) => await mapAutor.AutorPoridAsync(id);
+        
+        public async Task actualizarAutorAsync(Autor autor) => await mapAutor.actualizarAutorAsync(autor);
+        
 
         //ESTUDIO
-        public void altaEstudio(Estudio estudio)
-        {
-            mapEstudio.AltaEstudio(estudio);
-        }
-        public List<Estudio> obtenerEstudio()
-        {
-            return mapEstudio.ObtenerEstudios();
-        }
-        public void eliminarEstudio(Estudio estudio)
-        {
-            mapEstudio.eliminarEstudio(estudio);
-        }
-
-        public Estudio EstudioPorid(int id)
-        {
-            return mapEstudio.EstudioPorid(id);
-        }
-
-        public void actualizarEstudio(Estudio estudio)
-        {
-            mapEstudio.actualizarEstudio(estudio);
-        }
+        public async Task altaEstudioAsync(Estudio estudio) => await mapEstudio.AltaEstudioaAsync(estudio);
+        
+        public async Task<List<Estudio>> obtenerEstudioAsync() => await mapEstudio.ObtenerEstudiosAsync();
+        public async Task eliminarEstudioAsync(Estudio estudio) => await mapEstudio.eliminarEstudioAsync(estudio);
+        
+        public async Task<Estudio> EstudioPoridAsync(int id) => await mapEstudio.EstudioPoridAsync(id);
+        
+        public async Task actualizarEstudioAsync(Estudio estudio) => await mapEstudio.actualizarEstudioAsync(estudio);
+        
 
         // ANIME
-        public void altaAnime(Anime anime)
+        public async Task altaAnimeAsync(Anime anime)
         {
-            mapAnime.AltaAnime(anime);
+            await mapAnime.AltaAnimeAsync(anime);
         }
-        public List<Anime> obtenerAnimes()
+        public async Task<List<Anime>> obtenerAnimesAsync()
         {
-            return mapAnime.ObtenerAnime();
+            return await  mapAnime.ObtenerAnimeAsync();
         }
-        public Anime AnimePorid(int? id)
+        public async Task<Anime> AnimePoridAsync(int? id)
         {
-            return mapAnime.AnimePorid(id);
+            return await mapAnime.AnimePoridAsync(id);
         }
-        public void eliminarAnime(Anime anime)
+        public async Task eliminarAnimeAsync(Anime anime)
         {
-            mapAnime.eliminarAnime(anime);
+            await mapAnime.eliminarAnimeAsync(anime);
         }
-        public void actualizarAnime(Anime anime)
+        public async Task actualizarAnimeAsync(Anime anime)
         {
-            mapAnime.actualizarAnime(anime);
+            await mapAnime.actualizarAnimeAsync(anime);
         }
     }
 }

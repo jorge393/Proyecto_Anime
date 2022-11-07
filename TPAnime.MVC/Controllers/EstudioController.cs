@@ -9,39 +9,39 @@ public class EstudioController : Controller
 
     // VER ESTUDIOS
     [HttpGet]
-    public IActionResult Index()
-        => View("Lista", Ado.obtenerEstudio());
+    public async Task<IActionResult> Index()
+        => View("Lista",await Ado.obtenerEstudioAsync());
 
     // AGREGAR ESTUDIO
     [HttpGet]
     public IActionResult AgregarEstudio() => View();
 
     [HttpPost]
-    public IActionResult AgregarEstudio(Estudio estudio)
+    public async Task<IActionResult> AgregarEstudio(Estudio estudio)
     {
-        Ado.altaEstudio(estudio);
-        return View("Lista", Ado.obtenerEstudio());
+        await Ado.altaEstudioAsync(estudio);
+        return View("Lista", await Ado.obtenerEstudioAsync());
     }
     // ELIMINAR ESTUDIO
     [HttpPost]
-    public IActionResult EliminarEstudio(Estudio estudio)
+    public async Task<IActionResult> EliminarEstudio(Estudio estudio)
     {
-        Estudio estudioDelete = Ado.EstudioPorid(estudio.Id);
-        if (estudioDelete is null)
+         estudio = await Ado.EstudioPoridAsync(estudio.Id);
+        if (estudio is null)
         {
             return NotFound();
         }
         else
-            Ado.eliminarEstudio(estudioDelete);
+            await Ado.eliminarEstudioAsync(estudio);
 
         return Redirect(nameof(Index));
     }
 
     // ACTUALIZAR ESTUDIO
     [HttpGet]
-    public IActionResult ActualizarEstudio(int id)
+    public async Task<IActionResult> ActualizarEstudio(int id)
     {
-        Estudio estudioUpdate = Ado.EstudioPorid(id);
+        Estudio estudioUpdate = await Ado.EstudioPoridAsync(id);
         if (estudioUpdate is null)
         {
             return NotFound();
@@ -51,10 +51,10 @@ public class EstudioController : Controller
     }
 
     [HttpPost]
-    public IActionResult ActualizarEstudio(Estudio estudio)
+    public async Task<IActionResult> ActualizarEstudio(Estudio estudio)
     {
-        Ado.actualizarEstudio(estudio);
-        return View("Lista", Ado.obtenerEstudio());
+        await Ado.actualizarEstudioAsync(estudio);
+        return View("Lista",await Ado.obtenerEstudioAsync());
     }
 }
 

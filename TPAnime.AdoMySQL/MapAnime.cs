@@ -20,8 +20,8 @@ namespace TPAnime.AdoMySQL
         }
 
         #region AltaAnime
-        public void AltaAnime(Anime anime)
-        => EjecutarComandoCon("altaAnime", ConfigurarAltaAnime, PostAltaAnime, anime);
+        public async Task AltaAnimeAsync(Anime anime)
+        => await EjecutarComandoAsync("altaAnime", ConfigurarAltaAnime, PostAltaAnime, anime);
 
         private void ConfigurarAltaAnime(Anime anime)
         {
@@ -50,7 +50,7 @@ namespace TPAnime.AdoMySQL
 
 
         #region ObtenerAnimes
-        public List<Anime> ObtenerAnime() => ColeccionDesdeTabla();
+        public async Task<List<Anime>> ObtenerAnimeAsync() => await ColeccionDesdeTablaAsync();
         public override Anime ObjetoDesdeFila(DataRow fila)
         =>  new Anime(){
             Id = Convert.ToInt32(fila["idAnime"]),
@@ -59,18 +59,13 @@ namespace TPAnime.AdoMySQL
             Episodios = Convert.ToInt32(fila["episodios"]),
             Lanzamiento = Convert.ToDateTime(fila["lanzamiento"]),
             Estado = fila["estado"].ToString(),
-            Estudio = MapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"])),
-            Autor = new Autor()
-            {
-                Id = 232,
-                Nombre = "asda",
-                Apellido = "asdfas",
-            }
+            Estudio =  MapEstudio.EstudioPorid(Convert.ToInt32(fila["idEstudio"])),
+            Autor =  MapAutor.AutorPorid(Convert.ToInt32(fila["idAutor"])),
         };
         #endregion
 
         #region AnimePorId
-        public Anime AnimePorid(int? Id)
+        public async Task<Anime> AnimePoridAsync(int? Id)
         {
             SetComandoSP("llamarAnime");
 
@@ -78,14 +73,14 @@ namespace TPAnime.AdoMySQL
               .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
               .SetValor(Id)
               .AgregarParametro();
-            return ElementoDesdeSP();
+            return await ElementoDesdeSPAsync();
         }
         #endregion
 
         #region actualizarAnime
-        public void actualizarAnime(Anime anime)
+        public async Task actualizarAnimeAsync(Anime anime)
         {
-            EjecutarComandoCon("actualizarAnime", ConfigurarAltaAnimeActualizado, anime);
+            await EjecutarComandoAsync("actualizarAnime", ConfigurarAltaAnimeActualizado, anime);
         }
 
         public void ConfigurarAltaAnimeActualizado(Anime anime)
@@ -129,10 +124,10 @@ namespace TPAnime.AdoMySQL
         #endregion
 
         #region eliminarAnime
-        public void eliminarAnime(Anime anime)
+        public async Task eliminarAnimeAsync(Anime anime)
         {
 
-            EjecutarComandoCon("eliminarAnime", ConfigurarbajaAnime, anime);
+            await EjecutarComandoAsync("eliminarAnime", ConfigurarbajaAnime, anime);
         }
         public void ConfigurarbajaAnime(Anime anime)
         {

@@ -10,15 +10,15 @@ public class AnimeController : Controller
     public AnimeController(IAdo ado) => Ado = ado;
 
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View("Lista", Ado.obtenerAnimes());
+        return View("Lista",await Ado.obtenerAnimesAsync());
     }
 
     [HttpGet]
     public async Task<IActionResult> AgregarAnime()
     {
-        var Estudios = Ado.obtenerEstudio();
+        var Estudios = await Ado.obtenerEstudioAsync();
         var Autores = await Ado.obtenerAutoresAsync();
         var vmAnime = new VMAnime(Estudios, Autores);
         return View(vmAnime);
@@ -32,10 +32,10 @@ public class AnimeController : Controller
 
         if (vmAnime.IdAnime == 0)
         {
-            var estudio = Ado.EstudioPorid(vmAnime.IdEstudio);
+            var estudio = await Ado.EstudioPoridAsync(vmAnime.IdEstudio);
             var autor = await Ado.AutorPoridAsync(vmAnime.idAutor);
             var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EpisodiosAnime!, vmAnime.LanzamientoAnime, vmAnime.EstadoAnime!, estudio, autor);
-            Ado.altaAnime(Anime);
+            await Ado.altaAnimeAsync(Anime);
         }
         return Redirect(nameof(Index));
     }
@@ -46,11 +46,11 @@ public class AnimeController : Controller
         if (Id is null || Id == 0)
             return NotFound();
 
-        var anime = Ado.AnimePorid(Id);
+        var anime = await Ado.AnimePoridAsync(Id);
         if (anime is null)
             return NotFound();
 
-        var estudios = Ado.obtenerEstudio();
+        var estudios =await Ado.obtenerEstudioAsync();
         var autores = await Ado.obtenerAutoresAsync();
         var vmAnime = new VMAnime(estudios, autores, anime);
         return View(vmAnime);
@@ -58,23 +58,23 @@ public class AnimeController : Controller
     [HttpPost]
     public  async Task<IActionResult> ActualizarAnime(VMAnime vmAnime)
     {
-        var estudio = Ado.EstudioPorid(vmAnime.IdEstudio);
+        var estudio =await Ado.EstudioPoridAsync(vmAnime.IdEstudio);
         var autor = await Ado.AutorPoridAsync(vmAnime.idAutor);
         var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EpisodiosAnime!, vmAnime.LanzamientoAnime!, vmAnime.EstadoAnime!, estudio, autor);
         Anime.Id = vmAnime.IdAnime;
-        Ado.actualizarAnime(Anime);
-        return View("Lista", Ado.obtenerAnimes());
+        await Ado.actualizarAnimeAsync(Anime);
+        return View("Lista", await Ado.obtenerAnimesAsync());
     }
     [HttpPost]
-    public IActionResult EliminarAnime(Anime anime)
+    public async Task<IActionResult> EliminarAnime(Anime anime)
     {
-        Anime AnimeDelete = Ado.AnimePorid(anime.Id);
+        Anime AnimeDelete = await Ado.AnimePoridAsync(anime.Id);
         if (AnimeDelete is null)
         {
             return NotFound();
         }
         else
-            Ado.eliminarAnime(anime);
+            await Ado.eliminarAnimeAsync(anime);
 
         return Redirect(nameof(Index));
     }

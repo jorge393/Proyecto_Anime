@@ -14,7 +14,7 @@ namespace TPAnime.AdoMySQL
         #region AltaAutores
         public async Task altaAutorAsync(Autor autor)
         {
-            await EjecutarComandoCon("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
+            await EjecutarComandoAsync("altaAutor", ConfigurarAltaAutor, PostAltaAutor, autor);
         }
         public void ConfigurarAltaAutor(Autor autor)
         {
@@ -53,6 +53,18 @@ namespace TPAnime.AdoMySQL
             return await ElementoDesdeSPAsync();
         }
 
+         public Autor AutorPorid(int Id)
+        {
+            SetComandoSP("llamarAutor");
+
+            BP.CrearParametro("unidAutor")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+              .SetValor(Id)
+              .AgregarParametro();
+
+            return ElementoDesdeSP();
+        }
+
         #region ObtenerAutores
         public async Task<List<Autor>> ObtenerAutoresAsync() => await ColeccionDesdeTablaAsync();
 
@@ -66,21 +78,10 @@ namespace TPAnime.AdoMySQL
         #endregion
 
         #region eliminarAutor
-        public void eliminarAutor(Autor autor)
+        public async Task eliminarAutorAsync(Autor autor)
         {
-
-            // try
-            // {
-            EjecutarComandoCon("eliminarAutor", ConfigurarbajaAutor, autor);
-            // }
-            // catch (System.Exception a)
-            // {
-            //     var text = ("error, anime tiene una referencia a este autor")
-            //     MessageBox.Show(text);
-            // }
+            await EjecutarComandoAsync("eliminarAutor", ConfigurarbajaAutor, autor);
         }
-
-
         public void ConfigurarbajaAutor(Autor autor)
         {
 
@@ -95,9 +96,9 @@ namespace TPAnime.AdoMySQL
 
         #region actualizarAutor
 
-        public void actualizarAutor(Autor autor)
+        public async Task actualizarAutorAsync(Autor autor)
         {
-            EjecutarComandoCon("actualizarAutor", ConfigurarAltaAutorActualizado, autor);
+            await EjecutarComandoAsync("actualizarAutor", ConfigurarAltaAutorActualizado, autor);
         }
 
         public void ConfigurarAltaAutorActualizado(Autor autor)
@@ -119,7 +120,6 @@ namespace TPAnime.AdoMySQL
             .SetValor(autor.Apellido)
             .AgregarParametro();
         }
-
         #endregion
     }
 }

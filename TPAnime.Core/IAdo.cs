@@ -8,28 +8,28 @@ namespace TPAnime.Core
     public interface IAdo
     {
         #region Autor
-        Task altaAutor(Autor autor);
+        Task altaAutorAsync(Autor autor);
         Task<List<Autor>> obtenerAutoresAsync();
-        void actualizarAutor(Autor autor);
-        void eliminarAutor(Autor autor);
+        Task actualizarAutorAsync(Autor autor);
+        Task eliminarAutorAsync(Autor autor);
         Task<Autor> AutorPoridAsync(int id);
         #endregion
 
         #region Estudio
-        void altaEstudio(Estudio estudio);
-        List<Estudio> obtenerEstudio();
-        void eliminarEstudio(Estudio estudio);
-        void actualizarEstudio(Estudio estudio);
-        Estudio EstudioPorid(int id);
+        Task altaEstudioAsync(Estudio estudio);
+        Task<List<Estudio>> obtenerEstudioAsync();
+        Task eliminarEstudioAsync(Estudio estudio);
+        Task actualizarEstudioAsync(Estudio estudio);
+        Task<Estudio> EstudioPoridAsync(int id);
         #endregion
 
         #region Anime
-        void altaAnime(Anime anime);
+        Task altaAnimeAsync(Anime anime);
         // List<Anime> obtenerAnimes(Autor autor, Estudio estudio);
-        List<Anime> obtenerAnimes();
-        Anime AnimePorid(int? id);
-        void eliminarAnime(Anime anime);
-        void actualizarAnime(Anime anime);
+        Task<List<Anime>> obtenerAnimesAsync();
+        Task<Anime> AnimePoridAsync(int? id);
+        Task eliminarAnimeAsync(Anime anime);
+        Task actualizarAnimeAsync(Anime anime);
         #endregion
 
 

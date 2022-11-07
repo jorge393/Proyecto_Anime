@@ -21,8 +21,8 @@ namespace TPAnime.AdoMySQL
 
         #region AltaEstudio
 
-        public void AltaEstudio(Estudio estudio)
-            => EjecutarComandoCon("altaEstudio", ConfigurarAltaEstudio, PostAltaEstudio, estudio);
+        public async Task AltaEstudioaAsync(Estudio estudio)
+            => await EjecutarComandoAsync("altaEstudio", ConfigurarAltaEstudio, PostAltaEstudio, estudio);
 
 
         public void ConfigurarAltaEstudio(Estudio estudio)
@@ -54,6 +54,18 @@ namespace TPAnime.AdoMySQL
 
         #region estudioPorid
 
+        public async Task<Estudio> EstudioPoridAsync(int Id)
+        {
+            SetComandoSP("llamarEstudio");
+
+            BP.CrearParametro("unIdEstudio")
+              .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+              .SetValor(Id)
+              .AgregarParametro();
+
+            return await ElementoDesdeSPAsync();
+        }
+
         public Estudio EstudioPorid(int Id)
         {
             SetComandoSP("llamarEstudio");
@@ -68,9 +80,9 @@ namespace TPAnime.AdoMySQL
         #endregion
 
         #region eliminarEstudio
-        public void eliminarEstudio(Estudio estudio)
+        public async Task eliminarEstudioAsync(Estudio estudio)
         {
-            EjecutarComandoCon("eliminarEstudio", ConfigurarbajaEstudio, estudio);
+            await EjecutarComandoAsync("eliminarEstudio", ConfigurarbajaEstudio, estudio);
         }
 
         public void ConfigurarbajaEstudio(Estudio estudio)
@@ -85,9 +97,9 @@ namespace TPAnime.AdoMySQL
         #endregion
 
         #region actualizarEstudio
-        public void actualizarEstudio(Estudio estudio)
+        public async Task actualizarEstudioAsync(Estudio estudio)
         {
-            EjecutarComandoCon("actualizarEstudio", ConfigurarAltaEstudioActualizado, estudio);
+            await EjecutarComandoAsync("actualizarEstudio", ConfigurarAltaEstudioActualizado, estudio);
         }
 
 
@@ -112,6 +124,6 @@ namespace TPAnime.AdoMySQL
         }
         #endregion
 
-        public List<Estudio> ObtenerEstudios() => ColeccionDesdeTabla();
+        public async Task<List<Estudio>> ObtenerEstudiosAsync() => await ColeccionDesdeTablaAsync();
     }
 }
