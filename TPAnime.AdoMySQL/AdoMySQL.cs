@@ -43,25 +43,15 @@ namespace TPAnime.AdoMySQL
         
 
         // ANIME
-        public async Task altaAnimeAsync(Anime anime)
-        {
-            await mapAnime.AltaAnimeAsync(anime);
-        }
-        public async Task<List<Anime>> obtenerAnimesAsync()
-        {
-            return await  mapAnime.ObtenerAnimeAsync();
-        }
-        public async Task<Anime> AnimePoridAsync(int? id)
-        {
-            return await mapAnime.AnimePoridAsync(id);
-        }
-        public async Task eliminarAnimeAsync(Anime anime)
-        {
-            await mapAnime.eliminarAnimeAsync(anime);
-        }
-        public async Task actualizarAnimeAsync(Anime anime)
-        {
-            await mapAnime.actualizarAnimeAsync(anime);
-        }
+        public async Task altaAnimeAsync(Anime anime) => await mapAnime.AltaAnimeAsync(anime);
+        
+        public async Task<List<Anime>> obtenerAnimesAsync() => await  mapAnime.ObtenerAnimeAsync();
+        
+        public async Task<Anime> AnimePoridAsync(int? id)=>await mapAnime.AnimePoridAsync(id);
+        
+        public async Task eliminarAnimeAsync(Anime anime) => await mapAnime.eliminarAnimeAsync(anime);
+        
+        public async Task actualizarAnimeAsync(Anime anime) => await mapAnime.actualizarAnimeAsync(anime);
+        
     }
 }

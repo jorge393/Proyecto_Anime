@@ -15,6 +15,7 @@ public class AnimeController : Controller
         return View("Lista",await Ado.obtenerAnimesAsync());
     }
 
+    //AGREGAR ANIME
     [HttpGet]
     public async Task<IActionResult> AgregarAnime()
     {
@@ -40,6 +41,7 @@ public class AnimeController : Controller
         return Redirect(nameof(Index));
     }
 
+    //ACTUALIZAR ANIME
     [HttpGet]
     public async Task<IActionResult> ActualizarAnime(int? Id)
     {
@@ -65,6 +67,8 @@ public class AnimeController : Controller
         await Ado.actualizarAnimeAsync(Anime);
         return View("Lista", await Ado.obtenerAnimesAsync());
     }
+
+    //ELIMINAR ANIME
     [HttpPost]
     public async Task<IActionResult> EliminarAnime(Anime anime)
     {

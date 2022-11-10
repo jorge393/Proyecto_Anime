@@ -27,21 +27,43 @@ namespace TPAnime.AdoMySQL
         {
             SetComandoSP("altaAnime");
 
-            BP.CrearParametroSalida("unIdAnime").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).AgregarParametro();
+            BP.CrearParametroSalida("unIdAnime")
+                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                .AgregarParametro();
 
-            BP.CrearParametro("unnombre").SetTipoVarchar(45).SetValor(anime.Nombre).AgregarParametro();
+            BP.CrearParametro("unnombre")
+                .SetTipoVarchar(45)
+                .SetValor(anime.Nombre)
+                .AgregarParametro();
 
-            BP.CrearParametro("ungenero").SetTipoVarchar(45).SetValor(anime.Genero).AgregarParametro();
+            BP.CrearParametro("ungenero")
+            .SetTipoVarchar(45).SetValor(anime.Genero)
+            .AgregarParametro();
 
-            BP.CrearParametro("unEpisodios").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Episodios).AgregarParametro();
+            BP.CrearParametro("unEpisodios")
+                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                .SetValor(anime.Episodios)
+                .AgregarParametro();
 
-            BP.CrearParametro("unlanzamiento").SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime).SetValor(anime.Lanzamiento).AgregarParametro();
+            BP.CrearParametro("unlanzamiento")
+                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.DateTime)
+                .SetValor(anime.Lanzamiento)
+                .AgregarParametro();
 
-            BP.CrearParametro("unestado").SetTipoVarchar(45).SetValor(anime.Estado).AgregarParametro();
+            BP.CrearParametro("unestado")
+                .SetTipoVarchar(45)
+                .SetValor(anime.Estado)
+                .AgregarParametro();
 
-            BP.CrearParametro("unIdAutor").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Autor.Id).AgregarParametro();
+            BP.CrearParametro("unIdAutor")
+                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                .SetValor(anime.Autor.Id)
+                .AgregarParametro();
 
-            BP.CrearParametro("unIdEstudio").SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32).SetValor(anime.Estudio.Id).AgregarParametro();
+            BP.CrearParametro("unIdEstudio")
+                .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
+                .SetValor(anime.Estudio.Id)
+                .AgregarParametro();
 
         }
         public void PostAltaAnime(Anime anime)

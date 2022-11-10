@@ -17,9 +17,6 @@ public class AutorController : Controller
         return View("Lista", autores);
     }
 
-
-
-
     // AGREGAR AUTOR
     [HttpGet]
     public IActionResult AgregarAutor() => View();
@@ -30,11 +27,6 @@ public class AutorController : Controller
         await Ado.altaAutorAsync(autor);
         return View("Lista", await Ado.obtenerAutoresAsync());
     }
-
-
-
-
-
 
     //ELIMINAR
     [HttpPost]

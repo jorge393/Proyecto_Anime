@@ -113,14 +113,14 @@ namespace TPAnime.AdoMySQL
                 .AgregarParametro();
 
             BP.CrearParametro("unNombre")
-            .SetTipoVarchar(45)
-            .SetValor(estudio.Nombre)
-            .AgregarParametro();
+                .SetTipoVarchar(45)
+                .SetValor(estudio.Nombre)
+                .AgregarParametro();
 
             BP.CrearParametro("unDomicilio")
-            .SetTipoVarchar(45)
-            .SetValor(estudio.Domicilio)
-            .AgregarParametro();
+                .SetTipoVarchar(45)
+                .SetValor(estudio.Domicilio)
+                .AgregarParametro();
         }
         #endregion
 
