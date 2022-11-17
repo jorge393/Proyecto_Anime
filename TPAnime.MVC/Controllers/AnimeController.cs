@@ -60,6 +60,10 @@ public class AnimeController : Controller
     [HttpPost]
     public  async Task<IActionResult> ActualizarAnime(VMAnime vmAnime)
     {
+
+        if (!ModelState.IsValid)
+            return View(vmAnime);
+
         var estudio =await Ado.EstudioPoridAsync(vmAnime.IdEstudio);
         var autor = await Ado.AutorPoridAsync(vmAnime.idAutor);
         var Anime = new Anime(vmAnime.NombreAnime!, vmAnime.GeneroAnime!, vmAnime.EpisodiosAnime!, vmAnime.LanzamientoAnime!, vmAnime.EstadoAnime!, estudio, autor);
