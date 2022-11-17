@@ -131,7 +131,7 @@ namespace TPAnime.AdoMySQL
             .AgregarParametro();
             BP.CrearParametro("unEstado")
             .SetTipoVarchar(45)
-            .SetValor(anime.Genero)
+            .SetValor(anime.Estado)
             .AgregarParametro();
             BP.CrearParametro("unIdEstudio")
             .SetTipo(MySql.Data.MySqlClient.MySqlDbType.Int32)
